@@ -1,0 +1,47 @@
+.default-btn {
+  margin-top: 20px;
+  padding-left: 25px;
+}
+
+.social {
+  padding-right: 0;
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 20px;
+  li {
+    margin-left: 5px;
+    margin-right: 0;
+    a {
+      display: block;
+      width: 30px;
+      height: 30px;
+      line-height: 33px;
+      background-color: #e6e6e6;
+      text-align: center;
+      font-size: 17px;
+      border-radius: 2px;
+      color: #000;
+      &:hover {
+        color: #fff;
+        background-color: #45a887;
+      }
+    }
+  }
+}
+
+.article {
+  &-content {
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  &-image {
+    margin-bottom: 30px;
+    img {
+      border-radius: 50%;
+      width: 13rem;
+    }
+  }
+}

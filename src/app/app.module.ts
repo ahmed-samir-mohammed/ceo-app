@@ -16,6 +16,7 @@ import { ReportComponent } from './Pages/report/report.component';
 import { NgParticlesModule } from 'ng-particles';
 import { AboutUsComponent } from './Pages/about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GuideDetailsComponent } from './Pages/guide-details/guide-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     GuideComponent,
     NewsDetailsComponent,
     ReportComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    GuideDetailsComponent
   ],
   imports: [
     BrowserModule,

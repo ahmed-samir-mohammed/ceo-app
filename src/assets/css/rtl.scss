@@ -154,21 +154,17 @@ body {
     }
 }
 .single-feedback-item {
+    padding: 30px;
     .feedback-desc {
-        padding: 30px 160px 30px 30px;
+        padding-right: 30px;
         margin-right: 0;
         margin-left: 0;
     }
-    img {
-        right: 0;
-        left: auto;
-    }
-    .feedback-desc {
-        &::before {
-            left: 10px;
-            right: auto;
-        }
-    }
+
+    &::before {
+      left: 10px;
+      right: auto;
+  }
 }
 .pricing-list-tab {
     .tabs {

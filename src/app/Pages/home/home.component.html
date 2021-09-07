@@ -156,17 +156,17 @@
           <h2>الدليل</h2>
       </div>
       <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="single-feedback-item">
+        <div class="col-lg-4 col-md-6" *ngFor="let item of guideListItems | slice:0:3; let i=index">
+          <a class="single-feedback-item" routerLink="/guide/{{item.id}}">
             <!-- <div class="single-feedback-item" (click)="goToGuideItem(guideItem.id)"> -->
-            <!-- <img src="assets/img/woman1.png" alt="image"> -->
+            <img src="../../../assets/img/team-image/{{item.img}}" alt="image">
             <div class="feedback-desc">
                 <div class="client-info">
-                    <h3>Sarah Taylor</h3>
-                    <span>CEO at Envato</span>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.job}}</span>
                 </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
   </div>

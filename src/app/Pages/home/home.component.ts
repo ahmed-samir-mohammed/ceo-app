@@ -89,6 +89,32 @@ export class HomeComponent implements OnInit {
   };
 
   newsListItems: NewsList[] = []
+  guideListItems: any[] = [
+    {
+      id: 1,
+      name: "طارق بن عبد الله النعيم",
+      job: "الرئيس التنفيذي لشركة نقل وتقنيات المياه",
+      img: "img_1.jpeg"
+    },
+    {
+      id: 2,
+      name: "عبدالعزيز بن سالم الزيد",
+      job: "الرئيس التنفيذي لشركة خدمات الملاحة الجوية السعودية",
+      img: "img_2.jpeg"
+    },
+    {
+      id: 3,
+      name: "تركي عدنان عبد المجيد",
+      job: "الرئيس التنفيذي لقطاع الأغذية في مجموعة المداح التجارية",
+      img: "img_3.jpeg"
+    },
+    {
+      id: 4,
+      name: "عبدالله بن ناصر البدر",
+      job: "الرئيس التنفيذي لشركة المراعي",
+      img: "img_4.jpg"
+    }
+  ];
 
   constructor(private router: Router, private newsList: NewsService) { }
 

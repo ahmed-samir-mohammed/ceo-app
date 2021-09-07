@@ -15,6 +15,7 @@ export class NewsDetailsComponent implements OnInit {
   constructor(private router: Router, private newsList: NewsService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0)
     this.getAllNewsList()
   }
 
