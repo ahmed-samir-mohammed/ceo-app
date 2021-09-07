@@ -1,0 +1,52 @@
+{
+  "newsPage":[
+    {
+      "id": 1,
+      "title": "50 world-changing work, We lost in the 2010s",
+      "date": "Oct 14, 2020",
+      "imgPath": "assets/img/blog-image/img1.jpg",
+      "author": "Sarah Taylor",
+      "authorImg": "assets/img/author-image/img1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "50 world-changing work, We lost in the 2010s",
+      "date": "Oct 14, 2020",
+      "imgPath": "assets/img/blog-image/img2.jpg",
+      "author": "Sarah Taylor",
+      "authorImg": "assets/img/author-image/img1.jpg"
+    },
+    {
+      "id": 3,
+      "title": "50 world-changing work, We lost in the 2010s",
+      "date": "Oct 14, 2020",
+      "imgPath": "assets/img/blog-image/img3.jpg",
+      "author": "Sarah Taylor",
+      "authorImg": "assets/img/author-image/img1.jpg"
+    },
+    {
+      "id": 4,
+      "title": "50 world-changing work, We lost in the 2010s",
+      "date": "Oct 14, 2020",
+      "imgPath": "assets/img/blog-image/img1.jpg",
+      "author": "Sarah Taylor",
+      "authorImg": "assets/img/author-image/img1.jpg"
+    },
+    {
+      "id": 5,
+      "title": "50 world-changing work, We lost in the 2010s",
+      "date": "Oct 14, 2020",
+      "imgPath": "assets/img/blog-image/img2.jpg",
+      "author": "Sarah Taylor",
+      "authorImg": "assets/img/author-image/img1.jpg"
+    },
+    {
+      "id": 6,
+      "title": "50 world-changing work, We lost in the 2010s",
+      "date": "Oct 14, 2020",
+      "imgPath": "assets/img/blog-image/img3.jpg",
+      "author": "Sarah Taylor",
+      "authorImg": "assets/img/author-image/img1.jpg"
+    }
+  ]
+}

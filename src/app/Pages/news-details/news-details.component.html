@@ -1,0 +1,75 @@
+<div class="page-title-area">
+  <div class="container">
+      <div class="page-title-content">
+          <h2>الاخبار</h2>
+      </div>
+  </div>
+</div>
+
+
+<section class="blog-details-area pt-100">
+  <div class="container">
+      <div class="blog-details-desc">
+        <div class="row">
+          <div class="col-lg-4 col-12">
+            <div class="article-image">
+              <img src="assets/img/blog-image/img1.jpg" alt="image">
+            </div>
+          </div>
+          <div class="col-lg-8 col-12 d-flex align-items-center">
+            <div class="article-content">
+                <div class="entry-meta">
+                  <ul>
+                      <li><i class='bx bx-time'></i> <a href="#">September 31, 2020</a></li>
+                      <li><i class='bx bx-user'></i> <a href="#">Steven Smith</a></li>
+                  </ul>
+                </div>
+                <h3>50 world-changing people -- We lost in the 2010s</h3>
+                <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quia non numquam eius modi tempora incidunt ut labore et dolore magnam dolor sit amet, consectetur adipisicing.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quia non numquam eius modi tempora incidunt ut labore et dolore magnam dolor sit amet, consectetur adipisicing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="blog-area bg-f4f6fc pb-100">
+  <div class="container">
+      <div class="section-title">
+          <h3>اخبار ذات صلة</h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let item of newsListItems | slice:0:3; let i=index">
+          <div class="single-blog-post wow fadeInUp" data-wow-delay=".2s">
+              <div class="post-image">
+                  <a routerLink="/news/{{item.id}}"><img [src]="item.imgPath" alt="image"></a>
+                  <div class="date"><i class='bx bx-calendar'></i> {{item.date}} </div>
+              </div>
+              <div class="post-content">
+                  <h3><a routerLink="/news/{{item.id}}"> {{item.title}} </a></h3>
+                  <div class="post-info">
+                      <div class="post-by">
+                          <img [src]="item.authorImg" alt="image">
+                          <h6> {{item.author}} </h6>
+                      </div>
+                      <div class="details-btn">
+                          <a routerLink="/news/{{item.id}}"><i class="bx bx-left-arrow-alt"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="blog-notes wow fadeInUp" data-wow-delay=".8s">
+                <a routerLink="/news" class="default-btn">
+                    المزيد
+                    <i class="bx bx-left-arrow-alt"></i>
+                    <span></span>
+                </a>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>
