@@ -2,7 +2,10 @@ export interface NewsList {
   id: number,
   title: string,
   date: string,
-  imgPath: string,
+  imgName: string,
   author: string,
-  authorImg: string
+  imgAuthName: string,
+  disc_1: string,
+  disc_2: string,
+  disc_3: string
 }

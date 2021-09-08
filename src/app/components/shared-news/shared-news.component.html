@@ -1,0 +1,38 @@
+<section class="blog-area bg-f4f6fc ptb-100">
+  <div class="container">
+      <div class="section-title">
+          <h2>اخبار ذات صلة</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6" *ngFor="let item of newsListItems | slice:0:4; let i=index">
+          <div class="single-blog-post wow fadeInUp" data-wow-delay=".2s">
+              <div class="post-image">
+                  <a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"><img src="assets/img/blog-image/{{item.imgName}}" alt="image"></a>
+                  <div class="date"><i class='bx bx-calendar'></i> {{item.date}} </div>
+              </div>
+              <div class="post-content">
+                  <h3><a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"> {{item.title}} </a></h3>
+                  <div class="post-info">
+                      <div class="post-by">
+                          <img src="assets/img/author-image/{{item.imgAuthName}}" alt="image">
+                          <h6> {{item.author}} </h6>
+                      </div>
+                      <div class="details-btn">
+                          <a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"><i class="bx bx-left-arrow-alt"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="blog-notes wow fadeInUp" data-wow-delay=".8s">
+                <a routerLink="/news" class="default-btn">
+                    المزيد
+                    <i class="bx bx-left-arrow-alt"></i>
+                    <span></span>
+                </a>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>

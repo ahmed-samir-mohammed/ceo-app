@@ -11,6 +11,8 @@ import { NewsService } from 'src/app/core/services/news.service';
 export class NewsDetailsComponent implements OnInit {
 
   newsListItems: NewsList[] = []
+  newsItem: NewsList[] = [];
+  id!: number
 
   constructor(private router: Router, private newsList: NewsService) { }
 
@@ -19,11 +21,19 @@ export class NewsDetailsComponent implements OnInit {
     this.getAllNewsList()
   }
 
+  // Get News By ID
+  getNewsItem(id: number) {
+    this.newsList.getNewsById(id).subscribe((res: any) => {
+      this.newsItem = res
+      console.log(this.newsItem)
+    })
+  }
+
   // Get All News List
   getAllNewsList() {
     this.newsList.getAllNews().subscribe((res: any) => {
       this.newsListItems = res
     })
   }
-
 }
+

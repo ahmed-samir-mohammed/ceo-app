@@ -13,7 +13,11 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllNews(): Observable<NewsList>{
+  getAllNews(): Observable<NewsList> {
     return this.http.get<NewsList>(this.NEWS_API);
+  }
+
+  getNewsById(id: number): Observable<NewsList> {
+    return this.http.get<NewsList>(this.NEWS_API + "/" + id)
   }
 }

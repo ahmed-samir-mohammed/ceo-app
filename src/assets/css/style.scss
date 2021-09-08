@@ -5861,7 +5861,7 @@ Contact Area CSS
 Footer Area CSS
 =================================================*/
 .footer-area {
-    background-color: $black-color;
+    background-color: $paragraph-color;
     position: relative;
     z-index: 1;
     padding-top: 80px;
@@ -5908,7 +5908,7 @@ Footer Area CSS
     mask-image: url("data:image/svg+xml;utf8,%3csvg viewBox='0 0 100 100' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3e%3cpath d='M0,0 C16.6666667,66 33.3333333,98 50,98 C66.6666667,98 83.3333333,66 100,0 L100,100 L0,100 L0,0 Z' fill='%23fff'/%3e%3c/svg%3e");
     -webkit-mask-size: 100% 101%;
     mask-size: 100% 101%;
-    background: $black-color;
+    background: $paragraph-color;
     top: -100px;
     left: 0;
     z-index: -1;
@@ -5937,7 +5937,7 @@ Footer Area CSS
         }
     }
     p {
-        color: #acc5db;
+        color: $white-color
     }
     .services-list {
         padding-left: 0;
@@ -5945,7 +5945,7 @@ Footer Area CSS
         list-style-type: none;
 
         li {
-            color: #acc5db;
+            color: $white-color;
             margin-bottom: 10px;
 
             &:last-child {
@@ -5953,33 +5953,9 @@ Footer Area CSS
             }
             a {
                 display: inline-block;
-                color: #acc5db;
+                color: $white-color;
 
                 &:hover {
-                    color: $main-color;
-                    padding-left: 5px;
-                }
-            }
-        }
-    }
-    .support-list {
-        padding-left: 0;
-        margin-bottom: 0;
-        list-style-type: none;
-
-        li {
-            color: #acc5db;
-            margin-bottom: 10px;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-            a {
-                display: inline-block;
-                color: #acc5db;
-
-                &:hover {
-                    color: $main-color;
                     padding-left: 5px;
                 }
             }
@@ -5999,7 +5975,7 @@ Footer Area CSS
             }
             a {
                 display: inline-block;
-                color: #acc5db;
+                color: $white-color;
 
                 &:hover {
                     color: $main-color;
@@ -6023,7 +5999,7 @@ Footer Area CSS
                 width: 30px;
                 height: 30px;
                 line-height: 33px;
-                background-color: #4e6e8a;
+                background-color: rgba($color: $white-color, $alpha: 0.3);
                 text-align: center;
                 font-size: 17px;
                 border-radius: 2px;
@@ -6037,7 +6013,7 @@ Footer Area CSS
     }
 }
 .copyright-area {
-    border-top: 1px solid #1c2250;
+    border-top: 1px solid rgba($color: $white-color, $alpha: 0.18);;
     text-align: center;
     margin-top: 50px;
     padding: {
@@ -6046,14 +6022,14 @@ Footer Area CSS
     };
     p {
         line-height: initial;
-        color: #acc5db;
+        color: $white-color;
 
         a {
             display: inline-block;
             color: $white-color;
 
             &:hover {
-                color: $main-color;
+                color: $white-color;
             }
         }
     }

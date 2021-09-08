@@ -17,6 +17,10 @@ import { NgParticlesModule } from 'ng-particles';
 import { AboutUsComponent } from './Pages/about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GuideDetailsComponent } from './Pages/guide-details/guide-details.component';
+import { SharedNewsComponent } from './components/shared-news/shared-news.component';
+import { SharedGideComponent } from './components/shared-gide/shared-gide.component';
+import { SharedReportComponent } from './components/shared-report/shared-report.component';
+import { SharedServiceComponent } from './components/shared-service/shared-service.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { GuideDetailsComponent } from './Pages/guide-details/guide-details.compo
     NewsDetailsComponent,
     ReportComponent,
     AboutUsComponent,
-    GuideDetailsComponent
+    GuideDetailsComponent,
+    SharedNewsComponent,
+    SharedGideComponent,
+    SharedReportComponent,
+    SharedServiceComponent
   ],
   imports: [
     BrowserModule,

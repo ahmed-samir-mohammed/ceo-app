@@ -9,21 +9,21 @@
 <section class="blog-area ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6" *ngFor="let item of newsListItems">
+            <div class="col-lg-3 col-md-6" *ngFor="let item of newsListItems">
                 <div class="single-blog-post wow fadeInUp" data-wow-delay=".2s">
                     <div class="post-image">
-                        <a routerLink="/news/{{item.id}}"><img [src]="item.imgPath" alt="image"></a>
+                        <a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"><img src="assets/img/blog-image/{{item.imgName}}" alt="image"></a>
                         <div class="date"><i class='bx bx-calendar'></i> {{item.date}} </div>
                     </div>
                     <div class="post-content">
-                        <h3><a routerLink="/news/{{item.id}}"> {{item.title}} </a></h3>
+                        <h3><a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"> {{item.title}} </a></h3>
                         <div class="post-info">
                             <div class="post-by">
-                                <img [src]="item.authorImg" alt="image">
+                                <img src="assets/img/author-image/{{item.imgAuthName}}" alt="image">
                                 <h6> {{item.author}} </h6>
                             </div>
                             <div class="details-btn">
-                                <a routerLink="/news/{{item.id}}"><i class="bx bx-left-arrow-alt"></i></a>
+                                <a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"><i class="bx bx-left-arrow-alt"></i></a>
                             </div>
                         </div>
                     </div>
