@@ -21,6 +21,7 @@ import { SharedNewsComponent } from './components/shared-news/shared-news.compon
 import { SharedGideComponent } from './components/shared-gide/shared-gide.component';
 import { SharedReportComponent } from './components/shared-report/shared-report.component';
 import { SharedServiceComponent } from './components/shared-service/shared-service.component';
+import { ReportDetailesComponent } from './Pages/report-detailes/report-detailes.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SharedServiceComponent } from './components/shared-service/shared-servi
     SharedNewsComponent,
     SharedGideComponent,
     SharedReportComponent,
-    SharedServiceComponent
+    SharedServiceComponent,
+    ReportDetailesComponent
   ],
   imports: [
     BrowserModule,

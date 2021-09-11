@@ -6119,8 +6119,8 @@ SaaS Home Page CSS
 }
 /* Saas banner */
 .saas-banner {
-    height: 840px;
-    background-image: url('../img/banner-img2.jpg');
+    height: 600px;
+    background-image: url('../img/banner-img2.png');
     background-position: center;
     background-size: cover;
     position: relative;
@@ -6276,7 +6276,10 @@ SaaS Home Page CSS
 
 .particles {
     width: 100%;
-    height: 100%;
+    height: 600px;
+    #tsparticles {
+        height: 600px;
+    }
 }
 /* End Saas banner */
 

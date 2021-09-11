@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class NewsService {
 
-  NEWS_API: string = "http://localhost:3000/newsPage";
+  NEWS_API: string = "http://localhost:3200/newsPage";
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +18,6 @@ export class NewsService {
   }
 
   getNewsById(id: number): Observable<NewsList> {
-    return this.http.get<NewsList>(this.NEWS_API + "/" + id)
+    return this.http.get<NewsList>(`${this.NEWS_API}/${id}`)
   }
 }

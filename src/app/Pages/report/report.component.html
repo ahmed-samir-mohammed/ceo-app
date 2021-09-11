@@ -1,1 +1,24 @@
-<p>report works!</p>
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>التقارير</h2>
+        </div>
+    </div>
+</div>
+
+<section class="blog-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6" *ngFor="let item of reportListItems">
+                <div class="single-blog-post wow fadeInUp" data-wow-delay=".2s" >
+                    <div class="post-image">
+                        <a routerLink="/report/{{item.id}}"><img src="assets/img/blog-image/{{item.imgName}}" alt="image"></a>
+                    </div>
+                    <div class="post-content" routerLink="/news/{{item.id}}">
+                        <h3><a routerLink="/report/{{item.id}}"> {{item.title}} </a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
