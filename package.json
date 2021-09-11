@@ -18,6 +18,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@netlify-builder/deploy": "^4.1.2",
     "bootstrap": "^5.0.1",
     "jquery": "^3.6.0",
     "json-server": "^0.16.3",

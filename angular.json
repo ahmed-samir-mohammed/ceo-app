@@ -51,7 +51,7 @@
             ],
             "allowedCommonJsDependencies": [
               "lodash"
-           ]
+            ]
           },
           "configurations": {
             "production": {
@@ -59,7 +59,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "1.5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -120,6 +120,14 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/ceo-app",
+            "netlifyToken": "Kq2GZtdREkP3mkKe93s2kR52GhdyCRs79B6iE56PgRg",
+            "siteId": "6f278f71-7d43-4855-80c5-0d69a1abdd6f"
           }
         }
       }

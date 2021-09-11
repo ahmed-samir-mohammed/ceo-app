@@ -14,6 +14,7 @@ export class GuideComponent implements OnInit {
   constructor(private guideList: GuideService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0)
     this.getGuideList();
   }
 

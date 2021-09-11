@@ -8,7 +8,7 @@ import { GuideList } from '../pages/guide';
 })
 export class GuideService {
 
-  GUIDE_API: string = "http://localhost:3100/guideList";
+  GUIDE_API: string = "http://localhost:3000/guideList";
 
   constructor(private http: HttpClient) { }
 

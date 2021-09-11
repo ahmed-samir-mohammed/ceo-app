@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class NewsService {
 
-  NEWS_API: string = "http://localhost:3200/newsPage";
+  NEWS_API: string = "http://localhost:3000/newsPage";
 
   constructor(private http: HttpClient) { }
 
