@@ -12,15 +12,6 @@
               </div>
               <div class="post-content">
                   <h3><a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"> {{item.title}} </a></h3>
-                  <div class="post-info">
-                      <div class="post-by">
-                          <img src="assets/img/author-image/{{item.imgAuthName}}" alt="image">
-                          <h6> {{item.author}} </h6>
-                      </div>
-                      <div class="details-btn">
-                          <a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"><i class="bx bx-left-arrow-alt"></i></a>
-                      </div>
-                  </div>
               </div>
           </div>
         </div>
