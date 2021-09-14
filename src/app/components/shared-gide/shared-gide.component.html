@@ -6,7 +6,6 @@
       <div class="row">
         <div class="col-lg-4 col-md-6" *ngFor="let item of guideListItems | slice:0:3; let i=index">
           <a class="single-feedback-item wow fadeInUp" data-wow-delay=".3s" routerLink="/guide/{{item.id}}">
-            <!-- <div class="single-feedback-item" (click)="goToGuideItem(guideItem.id)"> -->
             <img src="../../../assets/img/team-image/{{item.imgName}}" alt="image">
             <div class="feedback-desc">
                 <div class="client-info">
