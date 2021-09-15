@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactUsComponent implements OnInit {
 
+  sendDone: boolean = false;
+  contactForm: boolean = true;
   constructor() { }
 
   ngOnInit(): void {

@@ -11,6 +11,9 @@ export class SharedNewsComponent implements OnInit {
 
   newsListItems: NewsList[] = []
 
+  inHome: boolean = false;
+  inNews: boolean = true;
+
   constructor( private newsList: NewsService) { }
 
   ngOnInit(): void {
