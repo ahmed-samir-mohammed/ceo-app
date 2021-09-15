@@ -44,8 +44,6 @@ export class SharedReportComponent implements OnInit {
     }
   ];
 
-
-
   constructor(private report: ReportService) { }
 
   ngOnInit(): void {

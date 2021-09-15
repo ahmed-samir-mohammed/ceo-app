@@ -3066,11 +3066,22 @@ Feedback Area CSS
     box-shadow: 0 10px 35px 5px rgba(137, 173, 255, 0.15);
     display: flex;
     align-items: center;
+    border-radius: 10px;
     z-index: 1;
     margin: {
         top: 10px;
         bottom: 30px;
     };
+    .guide-logo {
+        background-image: url('../img/guide.svg');
+        background-position: bottom left;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        width: 100%;
+    }
     img {
         display: inline-block !important;
         width: 7rem;
@@ -3111,22 +3122,6 @@ Feedback Area CSS
         }
 
     }
-    &::before {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      z-index: -1;
-      color: #f5f5f5;
-      line-height: 95px;
-      content: "\ed67";
-      font: {
-          family: "boxicons" !important;
-          weight: normal;
-          style: normal;
-          variant: normal;
-          size: 135px;
-      };
-  }
 }
 .feedback-slides {
     &.owl-theme {
@@ -3834,11 +3829,12 @@ Our Loving Clients Area CSS
 Blog Area CSS
 =================================================*/
 .single-blog-post {
-    border-radius: 2px;
+    border-radius: 10px;
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
     background-color: $white-color;
     transition: $transition;
+    overflow: hidden;
 
     .post-image {
         overflow: hidden;
@@ -3874,7 +3870,7 @@ Blog Area CSS
         }
     }
     .post-content {
-        padding: 25px;
+        padding: 15px;
 
         h3 {
             line-height: 1.4;
@@ -4626,8 +4622,8 @@ Page Title Area CSS
     position: relative;
     z-index: 1;
     padding: {
-        top: 130px;
-        bottom: 120px;
+        top: 70px;
+        bottom: 60px;
     };
     &::before {
         content: '';
@@ -5649,7 +5645,7 @@ Contact Area CSS
 .contact-inner {
     background-color: $white-color;
     box-shadow: 0 10px 35px 5px rgba(137, 173, 255, 0.15);
-    padding: 50px 30px;
+    padding:30px;
 }
 .contact-features-list {
     padding-right: 15px;
@@ -5743,13 +5739,6 @@ Contact Area CSS
             height: auto !important;
             padding-top: 15px;
         }
-        .default-btn {
-            box-shadow: 0px 5px 28.5px 1.5px rgba(255, 97, 47, 0.3) !important;
-
-            &:hover, &:focus {
-                box-shadow: 0px 5px 28.5px 1.5px rgba(19, 196, 161, 0.3) !important;
-            }
-        }
     }
     .with-errors {
         ul {
@@ -5774,6 +5763,7 @@ Contact Area CSS
             margin-top: 5px;
         }
     }
+
 }
 .contact-info {
     text-align: center;
@@ -5864,6 +5854,10 @@ Contact Area CSS
     }
 }
 
+.send-done {
+    color: $main-color   
+}
+
 /*================================================
 Footer Area CSS
 =================================================*/
@@ -5938,7 +5932,7 @@ Footer Area CSS
             display: inline-block;
 
             img {
-              width: 13rem;
+              width: 12rem;
               filter: contrast(0) brightness(2);
             }
         }

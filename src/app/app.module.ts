@@ -22,6 +22,7 @@ import { SharedGideComponent } from './components/shared-gide/shared-gide.compon
 import { SharedReportComponent } from './components/shared-report/shared-report.component';
 import { SharedServiceComponent } from './components/shared-service/shared-service.component';
 import { ReportDetailesComponent } from './Pages/report-detailes/report-detailes.component';
+import { AdsBanerComponent } from './components/ads-baner/ads-baner.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReportDetailesComponent } from './Pages/report-detailes/report-detailes
     SharedGideComponent,
     SharedReportComponent,
     SharedServiceComponent,
-    ReportDetailesComponent
+    ReportDetailesComponent,
+    AdsBanerComponent
   ],
   imports: [
     BrowserModule,
