@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NewsList } from 'src/app/core/pages/news';
 import { NewsService } from 'src/app/core/services/news.service';
 
@@ -9,10 +9,8 @@ import { NewsService } from 'src/app/core/services/news.service';
 })
 export class SharedNewsComponent implements OnInit {
 
+  @Input() sectionTitle!: string;
   newsListItems: NewsList[] = []
-
-  inHome: boolean = false;
-  inNews: boolean = true;
 
   constructor( private newsList: NewsService) { }
 

@@ -12,20 +12,21 @@
       <div class="blog-details-desc">
         <div class="row">
           <div class="col-lg-4 col-12">
-            <div class="article-image">
-              <img src="assets/img/blog-image/img3.jpg" alt="image">
+            <div class="article-image" *ngIf="newsListItems">
+              <img src="assets/img/blog-image/{{newsListItems.imgName}}" alt="image">
             </div>
           </div>
           <div class="col-lg-8 col-12 d-flex align-items-center">
             <div class="article-content">
                 <div class="entry-meta">
                   <ul>
-                      <li><i class='bx bx-time'></i>12 اكتوبر 2021</li>
+                      <li><i class='bx bx-time'></i>{{newsListItems.date}}</li>
                   </ul>
                 </div>
-                <h3>المحتوى المقروء لصفحة ما سيلهي القارئ عن</h3>
-                <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. </p>
-                <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. </p>
+                <h3>{{newsListItems.title}}</h3>
+                <p>{{newsListItems.disc_1}}</p>
+                <p>{{newsListItems.disc_2}}</p>
+                <p>{{newsListItems.disc_3}}</p>
               </div>
           </div>
         </div>
@@ -34,4 +35,4 @@
   </div>
 </section>
 
-<app-shared-news></app-shared-news>
+<app-shared-news [sectionTitle]="sectionTitle"></app-shared-news>

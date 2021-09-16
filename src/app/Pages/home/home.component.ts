@@ -1,11 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { GuideList } from 'src/app/core/pages/guide';
-import { NewsList } from 'src/app/core/pages/news';
-import { GuideService } from 'src/app/core/services/guide.service';
-import { NewsService } from 'src/app/core/services/news.service';
-import { Container, Main } from 'tsparticles';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +7,7 @@ import { Container, Main } from 'tsparticles';
 })
 export class HomeComponent implements OnInit {
 
-    inHome: boolean = true;
-    inNews: boolean = false;
+    sectionTitle = "آخر الأخبار";
     id: string = "tsparticles";
     particlesOptions: {} = {
         fpsLimit: 60,
