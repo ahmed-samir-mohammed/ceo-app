@@ -9,6 +9,7 @@ export class HomeComponent implements OnInit {
 
     sectionTitle = "آخر الأخبار";
     id: string = "tsparticles";
+    classes: string = 'bg-f4f6fc'
     particlesOptions: {} = {
         fpsLimit: 60,
         particles: {

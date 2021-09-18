@@ -6,32 +6,13 @@
                 ذات العلاقة بالقيادة التنفيذية، وذلك عبر شركاء متخصصين في تلك المجالات</p>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6" *ngFor="let item of serviceListItems | slice:0:4; let i=index">
                 <div class="features-box-one wow fadeInLeft" data-wow-delay=".1s">
-                    <h6>خدمة 1</h6>
-                    <i class='bx bx-cog bg-13c4a1'></i>
-                    <h3 class="text-center mb-0 mt-3">خدمة 1</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="features-box-one wow fadeInLeft" data-wow-delay=".2s">
-                    <h6>خدمة 2</h6>
-                    <i class='bx bxs-check-shield bg-6610f2'></i>
-                    <h3 class="text-center mb-0 mt-3">خدمة 2</h3>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="features-box-one wow fadeInLeft" data-wow-delay=".3s">
-                    <h6>خدمة 3</h6>
-                    <i class='bx bx-timer bg-ffb700'></i>
-                    <h3 class="text-center mb-0 mt-3">خدمة 3</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="features-box-one wow fadeInLeft" data-wow-delay=".4s">
-                    <h6>خدمة 4</h6>
-                    <i class='bx bx-badge-check bg-fc3549'></i>
-                    <h3 class="text-center mb-0 mt-3">خدمة 4</h3>
+                    <a routerLink="/service/{{item.id}}">
+                        <h6>{{item.category}}</h6>
+                        <img src="assets/img/blog-image/{{item.imgName}}" alt="image">
+                        <h3 class="text-center mb-0 mt-3">{{item.name}}</h3>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 justify-content-center">

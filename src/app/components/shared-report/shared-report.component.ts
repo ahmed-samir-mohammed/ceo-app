@@ -1,5 +1,5 @@
 import { ReportService } from './../../core/services/report.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ReportList } from 'src/app/core/pages/Report';
 
 @Component({
@@ -9,6 +9,7 @@ import { ReportList } from 'src/app/core/pages/Report';
 })
 export class SharedReportComponent implements OnInit {
 
+  @Input() classes!: string;
   reportListItems: ReportList[] = [
     {
       id: 1,
