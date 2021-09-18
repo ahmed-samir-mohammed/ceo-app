@@ -1,4 +1,4 @@
-<section class="blog-area ptb-100">
+<section class="blog-area ptb-100 {{classes}}">
   <div class="container">
       <div class="section-title">
           <h2>آخر التقارير</h2>
@@ -9,7 +9,7 @@
               <div class="post-image">
                   <a routerLink="/report/{{item.id}}"><img src="assets/img/blog-image/{{item.imgName}}" alt="image"></a>
               </div>
-              <div class="post-content" routerLink="/news/{{item.id}}">
+              <div class="post-content" routerLink="/report/{{item.id}}">
                   <h3 class="text-center"><a routerLink="/report/{{item.id}}"> {{item.title}} </a></h3>
               </div>
           </div>

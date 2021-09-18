@@ -1,3 +1,4 @@
+import { ServiceDetailsComponent } from './Pages/service-details/service-details.component';
 import { ReportComponent } from './Pages/report/report.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,10 +16,11 @@ import { ReportDetailesComponent } from './Pages/report-detailes/report-detailes
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutUsComponent },
+  { path: 'contact', component: ContactUsComponent },
   { path: 'news', component: NewsComponent },
   { path: 'news/:id', component: NewsDetailsComponent },
-  { path: 'contact', component: ContactUsComponent },
   { path: 'service', component: ServicesComponent },
+  { path: 'service/:id', component: ServiceDetailsComponent },
   { path: 'guide', component: GuideComponent },
   { path: 'guide/:id', component: GuideDetailsComponent },
   { path: 'report', component: ReportComponent },

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportDetailesComponent implements OnInit {
 
+  classes: string = 'bg-f4f6fc'
+
   constructor() { }
 
   ngOnInit(): void {

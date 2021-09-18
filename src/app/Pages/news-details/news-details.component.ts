@@ -11,11 +11,12 @@ export class NewsDetailsComponent implements OnInit {
 
   sectionTitle = 'الأخبار ذات العلاقة'
   newsListItems!: any;
+  classes: string = 'bg-f4f6fc'
   id!:number;
 
   constructor(private router: Router, private newsListServeic: NewsService, active: ActivatedRoute) {
     this.id = active.snapshot.params.id;
-   }
+  }
 
   ngOnInit(): void {
     window.scrollTo(0, 0)

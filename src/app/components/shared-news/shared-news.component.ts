@@ -10,6 +10,7 @@ import { NewsService } from 'src/app/core/services/news.service';
 export class SharedNewsComponent implements OnInit {
 
   @Input() sectionTitle!: string;
+  @Input() classes!: string;
   newsListItems: NewsList[] = []
 
   constructor( private newsList: NewsService) { }

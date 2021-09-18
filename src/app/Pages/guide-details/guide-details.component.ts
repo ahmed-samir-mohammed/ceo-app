@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuideDetailsComponent implements OnInit {
 
+  sectionTitle = 'الأخبار ذات العلاقة'
+  classes: string = 'bg-f4f6fc'
+
   constructor() { }
 
   ngOnInit(): void {

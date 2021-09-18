@@ -23,6 +23,7 @@ import { SharedReportComponent } from './components/shared-report/shared-report.
 import { SharedServiceComponent } from './components/shared-service/shared-service.component';
 import { ReportDetailesComponent } from './Pages/report-detailes/report-detailes.component';
 import { AdsBanerComponent } from './components/ads-baner/ads-baner.component';
+import { ServiceDetailsComponent } from './Pages/service-details/service-details.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AdsBanerComponent } from './components/ads-baner/ads-baner.component';
     SharedReportComponent,
     SharedServiceComponent,
     ReportDetailesComponent,
-    AdsBanerComponent
+    AdsBanerComponent,
+    ServiceDetailsComponent
   ],
   imports: [
     BrowserModule,
