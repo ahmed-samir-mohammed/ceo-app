@@ -24,6 +24,7 @@ import { SharedServiceComponent } from './components/shared-service/shared-servi
 import { ReportDetailesComponent } from './Pages/report-detailes/report-detailes.component';
 import { AdsBanerComponent } from './components/ads-baner/ads-baner.component';
 import { ServiceDetailsComponent } from './Pages/service-details/service-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ServiceDetailsComponent } from './Pages/service-details/service-details
     BrowserModule,
     AppRoutingModule,
     NgParticlesModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
