@@ -9,40 +9,40 @@
 <section class="contact-area ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-12" *ngIf="contactForm">
+            <div class="col-md-8 col-12" *ngIf="showContactForm">
                 <div class="contact-inner">
                     <div class="contact-form">
-                        <form id="contactForm">
+                        <form id="contactForm" #f="ngForm" [formGroup]="contactUsForm" (ngSubmit)="submited()" novalidate>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="name" id="name" class="form-control" required placeholder="الاسم">
+                                        <input type="text" formControleName="name" id="name" class="form-control" required placeholder="الاسم">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" class="form-control" required placeholder="البريد الإلكتروني">
+                                        <input type="email" formControleName="email" id="email" class="form-control" required placeholder="البريد الإلكتروني">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="msg_subject" id="msg_subject" class="form-control" required placeholder="الموضوع">
+                                        <input type="text" formControleName="msgSubject" id="msgSubject" class="form-control" required placeholder="الموضوع">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
-                                        <textarea name="message" class="form-control" id="message" cols="30" rows="6" required placeholder="الرسالة"></textarea>
+                                        <textarea formControleName="message" class="form-control" id="message" cols="30" rows="6" required placeholder="الرسالة"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 d-flex justify-content-center">
-                                    <button type="submit" class="default-btn"><i class='bx bxs-paper-plane'></i>ارسال<span></span></button>
+                                    <button type="submit" (click)="submitContact()" class="default-btn"><i class='bx bxs-paper-plane'></i>ارسال<span></span></button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-12" *ngIf="contactForm">
+            <div class="col-md-4 col-12" *ngIf="showContactForm">
                 <div class="contact-inner">
                     <div class="contact-info">
                         <div class="contact-info-content">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12" *ngIf="sendDone">
+            <div class="col-12 ptb-100" *ngIf="showSendDone">
                 <div class="contact-inner">
                     <h4 class="text-center send-done">
                         " تم الإرسال بنجاح، وسيجري التواصل معكم في أقرب فرصة.. نشكركم لتواصلكم "

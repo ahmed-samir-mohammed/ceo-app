@@ -126,8 +126,8 @@
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/ceo-app",
-            "netlifyToken": "Kq2GZtdREkP3mkKe93s2kR52GhdyCRs79B6iE56PgRg",
-            "siteId": "6f278f71-7d43-4855-80c5-0d69a1abdd6f"
+            "netlifyToken": "qivVoyYJ_tPTgQqMC2RA0bBR09BsSH7hcPOEr5xb-tQ",
+            "siteId": "688e1a8e-f3ad-4953-9606-b7fb1e7925a9"
           }
         }
       }
