@@ -11,37 +11,7 @@
         }
     });
 
-    // Button Hover JS
-    $(function() {
-        $('.default-btn')
-        .on('mouseenter', function(e) {
-            let parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
-        })
-        .on('mouseout', function(e) {
-            let parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
-        });
-    });
-    $(function() {
-        $('.optional-btn')
-        .on('mouseenter', function(e) {
-            let parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
-        })
-        .on('mouseout', function(e) {
-            let parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
-        });
-    });
+
 
     // Tabs
     (function ($) {

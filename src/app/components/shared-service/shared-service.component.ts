@@ -11,26 +11,26 @@ export class SharedServiceComponent implements OnInit {
   serviceListItems: Service[] = [
     {
       id: 1,
-      category: 'خدمة 1',
-      name: 'خدمة 1',
+      category: 'السفر',
+      name: 'صالات كبار الزوار',
       imgName: 'img1.jpg'
     },
     {
       id: 2,
-      category: 'خدمة 2',
-      name: 'خدمة 2', 
+      category: 'السفر',
+      name: 'صالات كبار الزوار',
       imgName: 'img3.jpg'
     },
     {
       id: 3,
-      category: 'خدمة 3',
-      name: 'خدمة 3',
+      category: 'السفر',
+      name: 'صالات كبار الزوار',
       imgName: 'img1.jpg'
     },
     {
       id: 4,
-      category: 'خدمة 4',
-      name: 'خدمة 4',
+      category: 'السفر',
+      name: 'صالات كبار الزوار',
       imgName: 'img3.jpg'
     }
   ];
