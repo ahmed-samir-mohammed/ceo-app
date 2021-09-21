@@ -2,17 +2,22 @@
     <div class="container max-width-1290">
         <div class="section-title">
             <h2>خدمات التنفيذيين</h2>
-            <p class="mt-2">"نسعى من خلال "خدمات التنفيذيين" إلى مساعدة زوار المنصة من الأفراد والشركات في الوصول إلى مزودي الخدمات
-                ذات العلاقة بالقيادة التنفيذية، وذلك عبر شركاء متخصصين في تلك المجالات</p>
+            <p class="mt-2">"نسعى من خلال "خدمات التنفيذيين" إلى مساعدة زوار المنصة من الأفراد والشركات في الوصول إلى مزودي الخدمات ذات العلاقة بالقيادة التنفيذية</p>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6" *ngFor="let item of serviceListItems | slice:0:4; let i=index">
                 <div class="features-box-one wow fadeInLeft" data-wow-delay=".1s">
-                    <a routerLink="/service/{{item.id}}">
-                        <h6>{{item.category}}</h6>
+                    <div>
                         <img src="assets/img/blog-image/{{item.imgName}}" alt="image">
-                        <h3 class="text-center mb-0 mt-3">{{item.name}}</h3>
-                    </a>
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3>{{item.category}}</h3>
+                                <a routerLink="/service/{{item.id}}" class="mb-2">{{item.name}}</a>
+                                <a routerLink="/service/{{item.id}}" class="mb-2">{{item.name}}</a>
+                                <a routerLink="/service/{{item.id}}" class="mb-2">{{item.name}}</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 justify-content-center">
