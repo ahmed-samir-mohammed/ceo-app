@@ -5648,12 +5648,6 @@ Contact Area CSS
                 left: -7px;
                 right: -7px;
             };
-            .col-lg-6, .col-lg-12 {
-                padding: {
-                    left: 7px;
-                    right: 7px;
-                };
-            }
         }
         .form-group {
             margin-bottom: 15px;
@@ -6066,8 +6060,8 @@ SaaS Home Page CSS
 /* Saas banner */
 .saas-banner {
     height: 600px;
-    background-image: url('../img/banner-img2.png');
-    background-position: center;
+    background-image: url('../img/banner-img2.jpg');
+    background-position: top;
     background-size: cover;
     position: relative;
     z-index: 1;
