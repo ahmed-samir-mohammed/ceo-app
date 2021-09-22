@@ -13,7 +13,6 @@ import { PreloaderComponent } from './components/preloader/preloader.component';
 import { GuideComponent } from './Pages/guide/guide.component';
 import { NewsDetailsComponent } from './Pages/news-details/news-details.component';
 import { ReportComponent } from './Pages/report/report.component';
-import { NgParticlesModule } from 'ng-particles';
 import { AboutUsComponent } from './Pages/about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GuideDetailsComponent } from './Pages/guide-details/guide-details.component';
@@ -52,7 +51,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgParticlesModule,
     HttpClientModule,
     ReactiveFormsModule
   ],

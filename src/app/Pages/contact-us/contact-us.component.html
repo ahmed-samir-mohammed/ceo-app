@@ -6,17 +6,20 @@
     </div>
 </div>
 
-<section class="contact-area ptb-100">
+<section class="contact-area ptb-100" *ngIf="showContactForm">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-12" *ngIf="showContactForm">
-                <div class="contact-inner">
+        <div class="contact-inner p-0">
+            <div class="row">
+                <div class="col-md-8 col-12">
                     <div class="contact-form">
-                        <form id="contactForm" #f="ngForm" [formGroup]="contactUsForm" (ngSubmit)="submited()" novalidate>
+                        <form id="contactForm" [formGroup]="contactUsForm" (ngSubmit)="submited(contactUsForm)" novalidate>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <input type="text" formControleName="name" id="name" class="form-control" required placeholder="الاسم">
+                                        <!-- <div *ngIf="contactUsForm.get('name').invalid && (contactUsForm.get('name').dirty || contactUsForm.get('name').touched)">
+                                            Please provide a name.
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
@@ -24,26 +27,24 @@
                                         <input type="email" formControleName="email" id="email" class="form-control" required placeholder="البريد الإلكتروني">
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6">
+                                <div class="col-12">
                                     <div class="form-group">
                                         <input type="text" formControleName="msgSubject" id="msgSubject" class="form-control" required placeholder="الموضوع">
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12">
+                                <div class="col-12">
                                     <div class="form-group">
                                         <textarea formControleName="message" class="form-control" id="message" cols="30" rows="6" required placeholder="الرسالة"></textarea>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12 d-flex justify-content-center">
-                                    <button type="submit" (click)="submitContact()" class="default-btn"><i class='bx bxs-paper-plane'></i>ارسال<span></span></button>
+                                <div class="col-12">
+                                    <button type="submit" class="default-btn" [disabled]="!contactUsForm.valid"><i class='bx bxs-paper-plane'></i>ارسال<span></span></button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-12" *ngIf="showContactForm">
-                <div class="contact-inner">
+                <div class="col-md-4 col-12">
                     <div class="contact-info">
                         <div class="contact-info-content">
                             <h3>تواصل معنا عبر البريد الالكتروني</h3>
@@ -58,9 +59,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 ptb-100" *ngIf="showSendDone">
-                <div class="contact-inner">
-                    <h4 class="text-center send-done">
+        </div>
+    </div>
+</section>
+
+<section class="ptb-100  msg-done" *ngIf="showSendDone">
+    <div class="container">
+        <div class="contact-inner">
+            <div class="row">
+                <div class="col-12" >
+                    <h4 class="text-center send-done m-0">
                         " تم الإرسال بنجاح، وسيجري التواصل معكم في أقرب فرصة.. نشكركم لتواصلكم "
                     </h4>
                 </div>

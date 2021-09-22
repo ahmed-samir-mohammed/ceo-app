@@ -10,31 +10,31 @@ export class ContactUsComponent implements OnInit {
 
   showSendDone: boolean = false;
   showContactForm: boolean = true;
+  contactUsForm!: FormGroup;
 
-  contactUsForm!: FormGroup
   constructor(private fb: FormBuilder) {
     this.contactUsForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['Sammy', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       msgSubject: ['', Validators.required],
-      message: ['', Validators.required]
+      message: ['', [Validators.required, Validators.minLength(15)]],
     })
   }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    console.log(this.contactUsForm)
   }
 
-  submited() {
-    console.log(this.contactUsForm)
-  }
-
-  submitContact() {
-    if (!this.contactUsForm.valid) {
-      // this.showSendDone = true;
-      // this.showContactForm = false;
+  submited(form: FormGroup) {
+    console.log('Valid?', form.valid); // true or false
+    
+    if (form.valid) {
+      console.log('Name', form.value.name);
+      console.log('Email', form.value.email);
+      console.log('Subject', form.value.msgSubject);
+      console.log('Message', form.value.message);
+      this.showSendDone = true;
+      this.showContactForm = false;
     }
   }
-
 }
