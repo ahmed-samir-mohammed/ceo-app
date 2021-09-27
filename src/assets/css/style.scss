@@ -847,14 +847,9 @@ Navbar Area CSS
     }
     .navbar {
         .navbar-nav {
-            border: 1px solid #eeeeee;
             padding: 10px 20px;
-            height: 350px;
-            overflow-y: scroll;
-            margin: {
-                left: 0;
-                top: 15px;
-            };
+            margin-left: 0;
+            margin-top: 15px;
             .nav-item {
                 a {
                     margin: {
@@ -4649,27 +4644,45 @@ Pagination Area CSS
 .pagination-area {
     margin-top: 35px;
     text-align: center;
+    .current {
+        background: #45a887 !important;
+        border-radius: .25rem;
+    }
 
-    .page-numbers {
-        width: 45px;
-        height: 45px;
-        margin: 0 3px;
-        display: inline-block;
-        background-color: $white-color;
-        line-height: 48px;
-        color: $black-color;
-        box-shadow: 0 2px 10px 0 #d8dde6;
-        font: {
-            size: 18px;
-            weight: 500;
-        };
-        &.current, &:hover, &:focus {
-            background: $main-color;
-            color: $white-color;
-            box-shadow: 0 2px 10px 0 #d8dde6;
+}
+
+.ngx-pagination {
+    .pagination {
+        &-previous {
+            a {
+                &::before {margin: 0 !important;}
+                &:hover {
+                    background: #45a887 !important;
+                    border-radius: .25rem;
+                    color: #fff;
+                }
+            }
+            &.disabled {
+                &::before {margin: 0 !important;}
+            }
+        }
+
+        &-next {
+            a {
+                &::after {margin: 0 !important;}
+                &:hover {
+                    background: #45a887 !important;
+                    border-radius: .25rem;
+                    color: #fff;
+                }
+            }
+            &.disabled {
+                &::after {margin: 0 !important;}
+            }
         }
     }
 }
+
 
 /*================================================
 Sidebar Widget Area CSS

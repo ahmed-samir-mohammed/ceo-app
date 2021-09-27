@@ -1113,7 +1113,6 @@ $value_nine: 1550px;
 
     /* SaaS home page */
     .saas-banner {
-        padding-bottom: 60px;
         height: 100%;
         text-align: center;
         .saas-image {
@@ -1264,8 +1263,6 @@ $value_nine: 1550px;
     }
 
     .single-feedback-item {
-        margin-top: 130px;
-
         img {
             display: inline-block !important;
         }
@@ -1655,7 +1652,6 @@ $value_nine: 1550px;
     }
 
     .single-feedback-item {
-        margin-top: 125px;
 
         .feedback-desc {
             .client-info {
@@ -2019,7 +2015,6 @@ $value_nine: 1550px;
 
     /* SaaS home page */
     .saas-banner {
-        padding-bottom: 60px;
         height: 100%;
         text-align: center;
         .saas-image {
@@ -2256,11 +2251,6 @@ $value_nine: 1550px;
     .shape10, .shape11, .shape12, .shape13, .shape21, .shape22 {
         display: none;
     }
-
-    .single-feedback-item {
-        margin-top: 40px;
-    }
-
     .app-download-content {
         h2 {
             font-size: 34px;
@@ -2358,9 +2348,6 @@ $value_nine: 1550px;
     /* SaaS Home */
     .saas-banner {
         // height: 750px;
-        .row.align-items-center.pt-5 {
-            padding: 0 !important;
-        }
         .hero-content {
             h1 {
                 font-size: 40px;

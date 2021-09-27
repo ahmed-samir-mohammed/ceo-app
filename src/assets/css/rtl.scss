@@ -35,12 +35,6 @@ body {
                     margin-left: 13px;
                 }
             }
-            &:last-child {
-                a {
-                    margin-left: 0;
-                    margin-right: 13px;
-                }
-            }
             .dropdown-menu {
                 right: 0;
                 left: auto;
@@ -806,9 +800,7 @@ Responsive CSS
             padding-left: 10px !important;
         }
     }
-    .default-btn {
-        padding-right: 45px !important;
-        padding-left: 20px !important;
+    .default-btn { 
 
         i {
             right: 20px !important;
@@ -893,8 +885,6 @@ Responsive CSS
         }
     }
     .default-btn {
-        padding-right: 45px !important;
-        padding-left: 20px !important;
 
         i {
             right: 20px !important;

@@ -15,13 +15,16 @@
             <span></span>
           </button>
           <form class="d-flex wow fadeInUp">
-            <input type="search" class="form-control" placeholder="ابحث هنا ...">
-            <button type="submit" class="default-btn" >
-              <i class="bx bx-search"></i>
-            </button>
+            <input type="search" class="form-control" [(ngModel)]="filterTerm" [ngModelOptions]="{standalone: true}" placeholder="ابحث هنا ...">
           </form>
         </div>
-        <div class="col-lg-4 col-md-6" *ngFor="let item of guideListItems">
+        <div class="col-lg-4 col-md-6" 
+          *ngFor="let item of guideListItems 
+            | filter:filterTerm 
+            | paginate: { 
+              itemsPerPage: 6, 
+              currentPage: p 
+            }">
           <a class="single-feedback-item wow fadeInUp" data-wow-delay=".3s" routerLink="/guide/{{item.id}}">
             <div class="guide-logo">
               <img src="assets/img/team-image/{{item.imgName}}" alt="image">
@@ -33,6 +36,16 @@
               </div>
             </div>
           </a>
+        </div>
+        <div class="col-12">
+          <div class="d-flex justify-content-center">
+            <pagination-controls 
+              class="pagination-area"
+              previousLabel="السابق" 
+              nextLabel="التالى" 
+              (pageChange)="p = $event">
+            </pagination-controls>
+          </div>
         </div>
       </div>
   </div>
