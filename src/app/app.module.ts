@@ -56,7 +56,7 @@ import { EvacuationResponsibilatyComponent } from './Pages/evacuation-responsibi
     AdsBanerComponent,
     ServiceDetailsComponent,
     TermsComponent,
-    EvacuationResponsibilatyComponent
+    EvacuationResponsibilatyComponent,
   ],
   imports: [
     BrowserAnimationsModule,

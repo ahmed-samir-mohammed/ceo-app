@@ -23,6 +23,11 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(){
+        window.onload = () => {
+            setTimeout(() => {
+                $('.preloader-area').fadeOut('slow');
+            }, 1000);
+        }
         this.recallJsFuntions();
     }
 
