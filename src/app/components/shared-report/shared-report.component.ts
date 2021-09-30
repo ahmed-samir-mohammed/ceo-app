@@ -10,6 +10,8 @@ import { ReportList } from 'src/app/core/pages/Report';
 export class SharedReportComponent implements OnInit {
 
   @Input() classes!: string;
+  showInLargScreen!: boolean;
+  showInSmallScreen!: boolean;
   reportListItems: ReportList[] = [
     {
       id: 1,
@@ -48,8 +50,16 @@ export class SharedReportComponent implements OnInit {
   constructor(private report: ReportService) { }
 
   ngOnInit(): void {
+    this.changeViewInScreenSize();
   }
 
-
-
+  changeViewInScreenSize() {
+    if (window.innerWidth >= 991) {
+      this.showInLargScreen = true;
+      this.showInSmallScreen = false;
+    } else {
+      this.showInLargScreen = false;
+      this.showInSmallScreen = true;
+    }
+  }
 }

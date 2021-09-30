@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-end align-items-center mb-3">
           <button type="button" class="default-btn ms-3 wow fadeInUp" data-bs-toggle="modal" data-bs-target="#changeData">
-            طلب تحديث بيانات
+            طلب إضافة شخصية
             <span></span>
           </button>
           <form class="d-flex wow fadeInUp">
@@ -25,7 +25,7 @@
               itemsPerPage: 6, 
               currentPage: p 
             }">
-          <a class="single-feedback-item wow fadeInUp" data-wow-delay=".3s" routerLink="/guide/{{item.id}}">
+          <a class="single-feedback-item wow fadeInUp" routerLink="/guide/{{item.id}}">
             <div class="guide-logo">
               <img src="assets/img/team-image/{{item.imgName}}" alt="image">
               <div class="feedback-desc">

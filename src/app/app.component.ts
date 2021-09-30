@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         this.router.events
         .subscribe((event) => {
             if ( event instanceof NavigationStart ) {
-                $('.preloader-area').fadeIn('slow');
+                $('.preloader-area').fadeIn();
             }
         });
         this.routerSubscription = this.router.events

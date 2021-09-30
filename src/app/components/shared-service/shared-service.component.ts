@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SharedServiceComponent implements OnInit {
 
+  showInLargScreen!: boolean;
+  showInSmallScreen!: boolean;
   serviceListItems: Service[] = [
     {
       id: 1,
@@ -62,6 +64,16 @@ export class SharedServiceComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.changeViewInScreenSize();
   }
 
+  changeViewInScreenSize() {
+    if (window.innerWidth >= 991) {
+      this.showInLargScreen = true;
+      this.showInSmallScreen = false;
+    } else {
+      this.showInLargScreen = false;
+      this.showInSmallScreen = true;
+    }
+  }
 }

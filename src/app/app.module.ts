@@ -28,6 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TermsComponent } from './Pages/terms/terms.component';
+import { EvacuationResponsibilatyComponent } from './Pages/evacuation-responsibilaty/evacuation-responsibilaty.component';
 
 
 
@@ -52,7 +54,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SharedServiceComponent,
     ReportDetailesComponent,
     AdsBanerComponent,
-    ServiceDetailsComponent
+    ServiceDetailsComponent,
+    TermsComponent,
+    EvacuationResponsibilatyComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -10,22 +10,21 @@ import { NewsService } from 'src/app/core/services/news.service';
 export class NewsDetailsComponent implements OnInit {
 
   sectionTitle = 'الأخبار ذات العلاقة'
-  newsListItems!: any;
   classes: string = 'bg-f4f6fc'
+  newsListItems!: any;
   id!:number;
 
-  constructor(private router: Router, private newsListServeic: NewsService, active: ActivatedRoute) {
+  constructor(private newsListItem: NewsService, active: ActivatedRoute) {
     this.id = active.snapshot.params.id;
   }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0)
     this.getNewsItem()
   }
 
   // Get News By ID
   getNewsItem() {
-    this.newsListServeic.getNewsById(this.id).subscribe((res: any) => {
+    this.newsListItem.getNewsById(this.id).subscribe((res: any) => {
       this.newsListItems = res
       console.log(this.newsListItems)
     })

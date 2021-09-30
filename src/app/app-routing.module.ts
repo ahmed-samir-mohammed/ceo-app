@@ -1,3 +1,5 @@
+import { EvacuationResponsibilatyComponent } from './Pages/evacuation-responsibilaty/evacuation-responsibilaty.component';
+import { TermsComponent } from './Pages/terms/terms.component';
 import { ServiceDetailsComponent } from './Pages/service-details/service-details.component';
 import { ReportComponent } from './Pages/report/report.component';
 import { NgModule } from '@angular/core';
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'guide/:id', component: GuideDetailsComponent },
   { path: 'report', component: ReportComponent },
   { path: 'report/:id', component: ReportDetailesComponent },
+  { path: 'terms', component: TermsComponent },
+  { path: 'decleration', component: EvacuationResponsibilatyComponent }
 ];
 
 @NgModule({

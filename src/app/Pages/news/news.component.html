@@ -12,11 +12,11 @@
             <div class="col-lg-3 col-6" *ngFor="let item of newsListItems">
                 <div class="single-blog-post wow fadeInUp" data-wow-delay=".2s">
                     <div class="post-image">
-                        <a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"><img src="assets/img/news/{{item.imgName}}" alt="image"></a>
-                        <div class="date"><i class='bx bx-calendar'></i> {{item.date}} </div>
+                        <a routerLink="/news/{{item.Id}}"><img src="http://saudiceos.alishehata.info{{ item.Image }}" alt="image"></a>
+                        <!-- <div class="date"><i class='bx bx-calendar'></i> {{item.date}} </div> -->
                     </div>
                     <div class="post-content">
-                        <h3><a routerLink="/news/{{item.id}}" (click)="getNewsItem(item.id)"> {{item.title}} </a></h3>
+                        <h3><a routerLink="/news/{{item.Id}}"> {{item.Title}} </a></h3>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { NewsList } from '../pages/news';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment as env } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,15 +10,14 @@ import { Observable } from 'rxjs';
 })
 export class NewsService {
 
-  NEWS_API: string = "http://localhost:3000/newsPage";
-
   constructor(private http: HttpClient) { }
 
   getAllNews(): Observable<NewsList> {
-    return this.http.get<NewsList>(this.NEWS_API);
+    return this.http.get<NewsList>(`${env.BASE_URL}/news/all`);
   }
 
   getNewsById(id: number): Observable<NewsList> {
-    return this.http.get<NewsList>(`${this.NEWS_API}/${id}`)
+    return this.http.get<NewsList>(`${env.BASE_URL}/news/all/${id}`)
   }
+  
 }
