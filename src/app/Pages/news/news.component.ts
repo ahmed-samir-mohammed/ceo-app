@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NewsList } from 'src/app/core/pages/news';
 import { NewsService } from 'src/app/core/services/news.service';
 
@@ -21,7 +20,10 @@ export class NewsComponent implements OnInit {
   // Get All News List
   getAllNewsList() {
     this.newsList.getAllNews().subscribe((res: any) => {
-      this.newsListItems = res
+      this.newsListItems = res.data
+    },
+    err => {
+      console.log(err);
     })
   }
 }

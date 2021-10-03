@@ -73,8 +73,8 @@ export class GuideComponent implements OnInit {
     this.guideList.getAllGuide().subscribe((res: any) => {
       this.guideListItems = res
     },
-    error => {
-      console.log(error);
+    err => {
+      console.log(err);
     });
   }
 }

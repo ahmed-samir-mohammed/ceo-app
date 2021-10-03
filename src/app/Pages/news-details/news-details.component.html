@@ -13,18 +13,18 @@
         <div class="row">
           <div class="col-lg-4 col-12">
             <div class="article-image">
-              <img src="http://saudiceos.alishehata.info{{newsListItems.Image}}" alt="image">
+              <img src="http://saudiceos.alishehata.info{{newsItem?.image}}" alt="image">
             </div>
           </div>
           <div class="col-lg-8 col-12 d-flex align-items-center">
             <div class="article-content">
                 <div class="entry-meta">
                   <ul>
-                      <!-- <li><i class='bx bx-calendar'></i>{{newsListItems.date}}</li> -->
+                      <li><i class='bx bx-calendar'></i>{{newsItem?.createDate}}</li>
                   </ul>
                 </div>
-                <h3>{{newsListItems.Title}}</h3>
-                <p>{{newsListItems.Description}}</p>
+                <h3>{{newsItem?.title}}</h3>
+                <p>{{newsItem?.description}}</p>
               </div>
           </div>
         </div>

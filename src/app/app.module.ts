@@ -30,6 +30,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TermsComponent } from './Pages/terms/terms.component';
 import { EvacuationResponsibilatyComponent } from './Pages/evacuation-responsibilaty/evacuation-responsibilaty.component';
+import { httpInterceptProviders } from './core/interceptors';
 
 
 
@@ -70,7 +71,7 @@ import { EvacuationResponsibilatyComponent } from './Pages/evacuation-responsibi
     NgxPaginationModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [httpInterceptProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

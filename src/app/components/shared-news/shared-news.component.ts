@@ -34,7 +34,7 @@ export class SharedNewsComponent implements OnInit {
 
   getNewsList() {
     this.newsList.getAllNews().subscribe((res: any) => {
-      this.newsListItems = res
+      this.newsListItems = res.data
     })
   }
 

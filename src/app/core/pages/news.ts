@@ -1,6 +1,9 @@
 export interface NewsList {
-  Id: number,
-  Description: string,
-  Title: string,
-  Image: string,
+  id: number,
+  description: string,
+  image: string,
+  note: string,
+  title: string,
+  createDate: string,
+  tags: null
 }

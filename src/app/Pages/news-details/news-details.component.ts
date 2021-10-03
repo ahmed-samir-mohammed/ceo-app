@@ -1,3 +1,4 @@
+import { NewsList } from './../../core/pages/news';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from 'src/app/core/services/news.service';
@@ -11,22 +12,22 @@ export class NewsDetailsComponent implements OnInit {
 
   sectionTitle = 'الأخبار ذات العلاقة'
   classes: string = 'bg-f4f6fc'
-  newsListItems!: any;
-  id!:number;
+  newsItem: any;
+  id!: any;
 
-  constructor(private newsListItem: NewsService, active: ActivatedRoute) {
-    this.id = active.snapshot.params.id;
-  }
+  constructor(private newsListItem: NewsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(id => {
+      this.id = id.get('id')
+    })
     this.getNewsItem()
   }
 
   // Get News By ID
   getNewsItem() {
     this.newsListItem.getNewsById(this.id).subscribe((res: any) => {
-      this.newsListItems = res
-      console.log(this.newsListItems)
+      this.newsItem = res
     })
   }
 }
