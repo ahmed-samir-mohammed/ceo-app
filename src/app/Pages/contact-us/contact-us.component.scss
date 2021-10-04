@@ -4,8 +4,7 @@
 
 .contact-info {
     &:last-of-type {
-        background-color: #45a887;
-        // background-color: #4a6f8a;
+        background-color: #4a6f8a;
         margin-top: 0;
         border-radius: 1rem;
         height: 100%;
@@ -44,4 +43,14 @@
     h4 { padding: 1rem; }
     margin-top: 200px;
     margin-bottom: 200px;
+}
+
+.default-btn {
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+        &:hover {
+            box-shadow: none;
+        }
+    }
 }

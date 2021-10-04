@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactSend } from 'src/app/core/pages/contactus';
+import { ContactUsService } from 'src/app/core/services/contact-us.service';
+declare let $: any;
 
 @Component({
   selector: 'app-contact-us',
@@ -12,29 +15,46 @@ export class ContactUsComponent implements OnInit {
   showContactForm: boolean = true;
   contactUsForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.contactUsForm = this.fb.group({
-      name: ['Sammy', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      msgSubject: ['', Validators.required],
-      message: ['', [Validators.required, Validators.minLength(15)]],
-    })
-  }
+  constructor(private fb: FormBuilder, private sendData: ContactUsService) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    this.contactSend()
   }
 
+  contactSend() {
+    this.contactUsForm = this.fb.group({
+      name: [''],
+      email: ['', [Validators.email]],
+      msgSubject: [''],
+      message: ['']
+    })
+  }
+
+  get nameIn() { return this.contactUsForm.get('name'); }
+  get emailIn() { return this.contactUsForm.get('email'); }
+  get msgSubjectIn() { return this.contactUsForm.get('msgSubject'); }
+  get messageIn() { return this.contactUsForm.get('message'); }
+
   submited(form: FormGroup) {
-    console.log('Valid?', form.valid); // true or false
-    
+    $('.preloader-area').fadeIn();
     if (form.valid) {
-      console.log('Name', form.value.name);
-      console.log('Email', form.value.email);
-      console.log('Subject', form.value.msgSubject);
-      console.log('Message', form.value.message);
-      this.showSendDone = true;
-      this.showContactForm = false;
+      this.sendData.sendContactForm({
+        Name: this.nameIn?.value,
+        Email: this.emailIn?.value,
+        Subject: this.msgSubjectIn?.value,
+        Message: this.messageIn?.value
+      }).subscribe((data) => {
+        console.log({data})
+      }, err => {
+        console.log({err})
+      }, () => {
+        console.log('Done!')
+        this.showSendDone = true;
+        this.showContactForm = false;
+        $('.preloader-area').fadeOut('slow');
+      })
+      
     }
   }
 }

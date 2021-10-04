@@ -10,11 +10,13 @@ import { ReportList } from 'src/app/core/pages/Report';
 export class SharedReportComponent implements OnInit {
 
   @Input() classes!: string;
+  showInLargScreen!: boolean;
+  showInSmallScreen!: boolean;
   reportListItems: ReportList[] = [
     {
       id: 1,
       title: "تقرير 1",
-      imgName: "img1.jpg",
+      imgName: "report1.png",
       disc_1: "",
       disc_2: "",
       disc_3: ""
@@ -22,7 +24,7 @@ export class SharedReportComponent implements OnInit {
     {
       id: 2,
       title: "تقرير 2",
-      imgName: "img3.jpg",
+      imgName: "report2.png",
       disc_1: "",
       disc_2: "",
       disc_3: ""
@@ -30,7 +32,7 @@ export class SharedReportComponent implements OnInit {
     {
       id: 3,
       title: "تقرير 3",
-      imgName: "img1.jpg",
+      imgName: "report1.png",
       disc_1: "",
       disc_2: "",
       disc_3: ""
@@ -38,7 +40,7 @@ export class SharedReportComponent implements OnInit {
     {
       id: 4,
       title: "تقرير 4",
-      imgName: "img3.jpg",
+      imgName: "report2.png",
       disc_1: "",
       disc_2: "",
       disc_3: ""
@@ -48,8 +50,16 @@ export class SharedReportComponent implements OnInit {
   constructor(private report: ReportService) { }
 
   ngOnInit(): void {
+    this.changeViewInScreenSize();
   }
 
-
-
+  changeViewInScreenSize() {
+    if (window.innerWidth >= 991) {
+      this.showInLargScreen = true;
+      this.showInSmallScreen = false;
+    } else {
+      this.showInLargScreen = false;
+      this.showInSmallScreen = true;
+    }
+  }
 }

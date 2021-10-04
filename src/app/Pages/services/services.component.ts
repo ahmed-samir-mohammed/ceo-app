@@ -13,123 +13,196 @@ export class ServicesComponent implements OnInit {
       id: 1,
       category: 'خدمة 1',
       name: 'خدمة 1',
-      imgName: 'img1.jpg'
+      imgName: 'service1.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 2,
       category: 'خدمة 2',
       name: 'خدمة 2', 
-      imgName: 'img3.jpg'
+      imgName: 'service2.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 3,
       category: 'خدمة 3',
       name: 'خدمة 3',
-      imgName: 'img1.jpg'
+      imgName: 'service3.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 4,
       category: 'خدمة 4',
       name: 'خدمة 4',
-      imgName: 'img3.jpg'
+      imgName: 'service4.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 1,
       category: 'خدمة 1',
       name: 'خدمة 1',
-      imgName: 'img1.jpg'
+      imgName: 'service1.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 2,
       category: 'خدمة 2',
       name: 'خدمة 2', 
-      imgName: 'img3.jpg'
+      imgName: 'service2.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 3,
       category: 'خدمة 3',
       name: 'خدمة 3',
-      imgName: 'img1.jpg'
+      imgName: 'service3.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 4,
       category: 'خدمة 4',
       name: 'خدمة 4',
-      imgName: 'img3.jpg'
+      imgName: 'service4.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 1,
       category: 'خدمة 1',
       name: 'خدمة 1',
-      imgName: 'img1.jpg'
+      imgName: 'service1.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 2,
       category: 'خدمة 2',
       name: 'خدمة 2', 
-      imgName: 'img3.jpg'
+      imgName: 'service2.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 3,
       category: 'خدمة 3',
       name: 'خدمة 3',
-      imgName: 'img1.jpg'
+      imgName: 'service3.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 4,
       category: 'خدمة 4',
       name: 'خدمة 4',
-      imgName: 'img3.jpg'
+      imgName: 'service4.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 1,
       category: 'خدمة 1',
       name: 'خدمة 1',
-      imgName: 'img1.jpg'
+      imgName: 'service1.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 2,
       category: 'خدمة 2',
       name: 'خدمة 2', 
-      imgName: 'img3.jpg'
+      imgName: 'service2.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 3,
       category: 'خدمة 3',
       name: 'خدمة 3',
-      imgName: 'img1.jpg'
+      imgName: 'service3.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     },
     {
       id: 4,
       category: 'خدمة 4',
       name: 'خدمة 4',
-      imgName: 'img3.jpg'
-    },
-    {
-      id: 1,
-      category: 'خدمة 1',
-      name: 'خدمة 1',
-      imgName: 'img1.jpg'
-    },
-    {
-      id: 2,
-      category: 'خدمة 2',
-      name: 'خدمة 2', 
-      imgName: 'img3.jpg'
-    },
-    {
-      id: 3,
-      category: 'خدمة 3',
-      name: 'خدمة 3',
-      imgName: 'img1.jpg'
-    },
-    {
-      id: 4,
-      category: 'خدمة 4',
-      name: 'خدمة 4',
-      imgName: 'img3.jpg'
+      imgName: 'service4.png',
+      serviceList: [
+        {
+          id: 1,
+          linkName: 'خدمة 1'
+        }
+      ]
     }
   ];
+  p: number = 1;
   
   constructor() { }
 

@@ -3,4 +3,10 @@ export interface Service {
     category: string, 
     name: string,
     imgName: string,
+    serviceList: any[]
+}
+
+export interface serviceList {
+    id: number,
+    linkName: string
 }

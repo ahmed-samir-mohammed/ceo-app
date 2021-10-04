@@ -6,17 +6,10 @@
 form {
     .form-control {
         padding: 0.65rem 0.75rem;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-    }
-    .default-btn {
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 4rem;
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-        i {left: auto;}
+        &:focus {
+            box-shadow: none;
+            border-color: #45a887;
+        }
     }
 }
+
