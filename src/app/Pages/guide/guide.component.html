@@ -18,20 +18,20 @@
             <input type="search" class="form-control" [(ngModel)]="filterTerm" [ngModelOptions]="{standalone: true}" placeholder="ابحث هنا ...">
           </form>
         </div>
-        <div class="col-lg-4 col-md-6" 
-          *ngFor="let item of guideListItems 
-            | filter:filterTerm 
-            | paginate: { 
-              itemsPerPage: 6, 
-              currentPage: p 
+        <div class="col-lg-4 col-md-6"
+          *ngFor="let item of ceoList
+            | filter: filterTerm
+            | paginate: {
+              itemsPerPage: 6,
+              currentPage: p
             }">
           <a class="single-feedback-item wow fadeInUp" routerLink="/guide/{{item.id}}">
             <div class="guide-logo">
-              <img src="assets/img/team-image/{{item.imgName}}" alt="image">
+              <img src="http://saudiceos.alishehata.info{{item.image}}" alt="image">
               <div class="feedback-desc">
                   <div class="client-info">
                       <h3>{{item.name}}</h3>
-                      <span>{{item.job}}</span>
+                      <span>{{item.position}}</span>
                   </div>
               </div>
             </div>
@@ -39,10 +39,10 @@
         </div>
         <div class="col-12">
           <div class="d-flex justify-content-center">
-            <pagination-controls 
+            <pagination-controls
               class="pagination-area"
-              previousLabel="السابق" 
-              nextLabel="التالى" 
+              previousLabel="السابق"
+              nextLabel="التالى"
               (pageChange)="p = $event">
             </pagination-controls>
           </div>

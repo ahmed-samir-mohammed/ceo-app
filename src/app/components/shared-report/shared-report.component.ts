@@ -12,45 +12,13 @@ export class SharedReportComponent implements OnInit {
   @Input() classes!: string;
   showInLargScreen!: boolean;
   showInSmallScreen!: boolean;
-  reportListItems: ReportList[] = [
-    {
-      id: 1,
-      title: "تقرير 1",
-      imgName: "report1.png",
-      disc_1: "",
-      disc_2: "",
-      disc_3: ""
-    },
-    {
-      id: 2,
-      title: "تقرير 2",
-      imgName: "report2.png",
-      disc_1: "",
-      disc_2: "",
-      disc_3: ""
-    },
-    {
-      id: 3,
-      title: "تقرير 3",
-      imgName: "report1.png",
-      disc_1: "",
-      disc_2: "",
-      disc_3: ""
-    },
-    {
-      id: 4,
-      title: "تقرير 4",
-      imgName: "report2.png",
-      disc_1: "",
-      disc_2: "",
-      disc_3: ""
-    }
-  ];
+  reportListItems: ReportList[] = [];
 
-  constructor(private report: ReportService) { }
+  constructor(private reportList: ReportService) { }
 
   ngOnInit(): void {
     this.changeViewInScreenSize();
+    this.getReportList();
   }
 
   changeViewInScreenSize() {
@@ -61,5 +29,11 @@ export class SharedReportComponent implements OnInit {
       this.showInLargScreen = false;
       this.showInSmallScreen = true;
     }
+  }
+
+  getReportList() {
+    this.reportList.getAllReport().subscribe((res: any) => {
+      this.reportListItems = res.data
+    })
   }
 }

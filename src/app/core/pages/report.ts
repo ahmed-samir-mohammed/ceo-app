@@ -1,8 +1,12 @@
 export interface ReportList {
-    id: number,
-    title: string,
-    imgName: string,
-    disc_1: string,
-    disc_2: string,
-    disc_3: string
+  id: number,
+  dateCreated: string
+  description: string
+  image: string
+  file: string
+  issueDate: string
+  issuer: string
+  socialShare: null,
+  type: string
+  publishDate: string
 }

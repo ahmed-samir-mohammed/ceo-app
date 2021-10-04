@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GuideList } from 'src/app/core/pages/guide';
+import { CeoList } from 'src/app/core/pages/guide';
 import { GuideService } from 'src/app/core/services/guide.service';
 
 @Component({
@@ -9,44 +9,23 @@ import { GuideService } from 'src/app/core/services/guide.service';
 })
 export class SharedGideComponent implements OnInit {
 
-  guideListItems: GuideList[] = [
-    {
-      id: 1,
-      name: "طارق بن عبد الله النعيم",
-      job: "الرئيس التنفيذي لشركة نقل وتقنيات المياه",
-      imgName: "img_1.jpeg"
-    },
-    {
-      id: 2,
-      name: "عبدالعزيز بن سالم الزيد",
-      job: "الرئيس التنفيذي لشركة خدمات الملاحة الجوية السعودية",
-      imgName: "img_2.jpeg"
-    },
-    {
-      id: 3,
-      name: "تركي عدنان عبد المجيد",
-      job: "الرئيس التنفيذي لقطاع الأغذية في مجموعة المداح التجارية",
-      imgName: "img_3.jpeg"
-    },
-    {
-      id: 4,
-      name: "عبدالله بن ناصر البدر",
-      job: "الرئيس التنفيذي لشركة المراعي",
-      imgName: "img_4.jpg"
-    }
-  ]
+  ceoList: CeoList[] = []
 
   constructor(private guideList: GuideService) { }
 
   ngOnInit(): void {
-    // this.getGuideList()
+    this.getAllCeo()
   }
 
   // Get All News List
-  getGuideList() {
-    this.guideList.getAllGuide().subscribe((res: any) => {
-      this.guideListItems = res
-    })
+  getAllCeo() {
+    this.guideList.getAllCeo().subscribe((res: any) => {
+      this.ceoList = res.data
+      console.log(this.ceoList);
+    },
+    err => {
+      console.log(err);
+    });
   }
 
 }
