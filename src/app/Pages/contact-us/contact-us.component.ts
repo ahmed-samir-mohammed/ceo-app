@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactSend } from 'src/app/core/pages/contactus';
 import { ContactUsService } from 'src/app/core/services/contact-us.service';
+import { SettingService } from 'src/app/core/services/setting.service';
 declare let $: any;
 
 @Component({
@@ -14,12 +15,13 @@ export class ContactUsComponent implements OnInit {
   showSendDone: boolean = false;
   showContactForm: boolean = true;
   contactUsForm!: FormGroup;
+  settingContact: any;
 
-  constructor(private fb: FormBuilder, private sendData: ContactUsService) {}
+  constructor(private fb: FormBuilder, private sendData: ContactUsService, private setting: SettingService) {}
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
-    this.contactSend()
+    this.contactSend();
+    this.getSettingContact()
   }
 
   contactSend() {
@@ -53,5 +55,12 @@ export class ContactUsComponent implements OnInit {
       })
 
     }
+  }
+
+  getSettingContact() {
+    this.setting.getAllSetting().subscribe((res: any) => {
+      this.settingContact = res
+      console.log(res)
+    })
   }
 }
