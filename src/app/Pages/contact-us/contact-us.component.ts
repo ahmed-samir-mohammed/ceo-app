@@ -44,17 +44,14 @@ export class ContactUsComponent implements OnInit {
         Email: this.emailIn?.value,
         Subject: this.msgSubjectIn?.value,
         Message: this.messageIn?.value
-      }).subscribe((data) => {
-        console.log({data})
-      }, err => {
+      }).subscribe(() => {}, err => {
         console.log({err})
       }, () => {
-        console.log('Done!')
         this.showSendDone = true;
         this.showContactForm = false;
         $('.preloader-area').fadeOut('slow');
       })
-      
+
     }
   }
 }

@@ -1,12 +1,10 @@
-export interface Service { 
-    id: number,
-    category: string, 
-    name: string,
-    imgName: string,
-    serviceList: any[]
-}
-
-export interface serviceList {
-    id: number,
-    linkName: string
+export interface ServiceList {
+  id: 5,
+  dateCreated: null,
+  description: string,
+  image: string,
+  file: string,
+  code: string,
+  link: string,
+  title: string
 }

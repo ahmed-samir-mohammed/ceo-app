@@ -21,7 +21,6 @@ export class SharedGideComponent implements OnInit {
   getAllCeo() {
     this.guideList.getAllCeo().subscribe((res: any) => {
       this.ceoList = res.data
-      console.log(this.ceoList);
     },
     err => {
       console.log(err);

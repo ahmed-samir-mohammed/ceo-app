@@ -17,15 +17,16 @@ export class ReportDetailesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(id => {
-      this.id = id.get('id')
+      this.id = id.get('id');
+      this.getCeoItem()
     })
-
-    this.getCeoItem()
   }
   getCeoItem() {
     this.reporListItem.getReportById(this.id).subscribe((res: any) => {
       this.reporItem = res
-      console.log(this.reporItem)
+    },
+    err => {
+      console.log(err);
     })
   }
 

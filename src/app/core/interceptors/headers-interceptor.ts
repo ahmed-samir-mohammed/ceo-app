@@ -5,9 +5,9 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/c
 @Injectable()
 export class AuthHeadersInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const _token = 'saudiceos-api';
+    const _apiKey = 'saudiceos-api';
     const modifiedReq = req.clone({
-      headers: req.headers.set('apiKey', _token)
+      headers: req.headers.set('apiKey', _apiKey)
     })
     return next.handle(modifiedReq)
   }

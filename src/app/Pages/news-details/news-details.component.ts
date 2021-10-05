@@ -13,21 +13,27 @@ export class NewsDetailsComponent implements OnInit {
   sectionTitle = 'الأخبار ذات العلاقة'
   classes: string = 'bg-f4f6fc'
   newsItem: any;
-  id!: any;
+  id!: unknown | undefined;
 
   constructor(private newsListItem: NewsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(id => {
       this.id = id.get('id')
+      this.getNewsItem()
+    },
+    err => {
+      console.log(err);
     })
-    this.getNewsItem()
   }
 
   // Get News By ID
   getNewsItem() {
-    this.newsListItem.getNewsById(this.id).subscribe((res: any) => {
+    this.newsListItem.getNewsById(this.id).subscribe(res => {
       this.newsItem = res
+    },
+    err => {
+      console.log(err);
     })
   }
 }

@@ -16,8 +16,8 @@ export class NewsService {
     return this.http.get<NewsList>(`${env.BASE_URL}/news`);
   }
 
-  getNewsById(id: any): Observable<NewsList> {
+  getNewsById(id: unknown): Observable<NewsList> {
     return this.http.get<NewsList>(`${env.BASE_URL}/news/details/${id}`)
   }
-  
+
 }

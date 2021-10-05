@@ -11,7 +11,7 @@ export class GuideComponent implements OnInit {
 
   ceoList: CeoList[] = []
   filterTerm!: string;
-  p: number = 1;
+  p!: number;
 
   constructor(private guideList: GuideService) { }
 
@@ -23,7 +23,7 @@ export class GuideComponent implements OnInit {
    getAllCeo() {
     this.guideList.getAllCeo().subscribe((res: any) => {
       this.ceoList = res.data
-      console.log(this.ceoList);
+      this.p = res.pageNumber
     },
     err => {
       console.log(err);

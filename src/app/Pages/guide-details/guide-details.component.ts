@@ -26,7 +26,9 @@ export class GuideDetailsComponent implements OnInit {
   getCeoItem() {
     this.ceoListItem.getCeoById(this.id).subscribe((res: any) => {
       this.ceoItem = res
-      console.log(this.ceoItem)
+    },
+    err => {
+      console.log(err);
     })
   }
 }

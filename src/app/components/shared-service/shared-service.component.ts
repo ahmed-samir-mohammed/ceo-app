@@ -1,4 +1,4 @@
-import { Service } from './../../core/pages/service';
+import { ServiceList } from './../../core/pages/service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ export class SharedServiceComponent implements OnInit {
 
   showInLargScreen!: boolean;
   showInSmallScreen!: boolean;
-  serviceListItems: Service[] = [
+  serviceListItems: any[] = [
     {
       id: 1,
       category: 'خدمة 1',
@@ -26,7 +26,7 @@ export class SharedServiceComponent implements OnInit {
     {
       id: 2,
       category: 'خدمة 2',
-      name: 'خدمة 2', 
+      name: 'خدمة 2',
       imgName: 'service2.png',
       serviceList: [
         {

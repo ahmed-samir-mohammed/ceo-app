@@ -211,7 +211,7 @@ p {
     &:hover, &:focus {
         color: $white-color;
         box-shadow: 0px 5px 28.5px 1.5px rgba(19, 196, 161, 0.3) !important;
-        
+
         span {
             width: 225%;
             height: 562.5px;
@@ -494,11 +494,6 @@ Navbar Area CSS
                         left: -3px;
                         right: -3px;
                     };
-                }
-            }
-            &:last-child {
-                a {
-                    margin-right: 0;
                 }
             }
             &:first-child {
@@ -5811,7 +5806,7 @@ Contact Area CSS
 }
 
 .send-done {
-    color: $main-color   
+    color: $main-color
 }
 
 /*================================================
