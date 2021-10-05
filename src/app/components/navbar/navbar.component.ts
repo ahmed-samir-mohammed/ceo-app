@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingService } from 'src/app/core/services/setting.service';
 
 @Component({
     selector: 'app-navbar',
@@ -7,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-    constructor() {}
+    settingNavbar: any;
 
-    ngOnInit() {
-        window.scrollTo(0, 0)
+    constructor(private setting: SettingService) { }
+  
+    ngOnInit(): void {
+        this.getSettingNavbar() ;
+    }
+
+    getSettingNavbar() {
+        this.setting.getAllSetting().subscribe((res: any) => {
+            this.settingNavbar = res
+            console.log(res)
+        })
     }
 
 }
