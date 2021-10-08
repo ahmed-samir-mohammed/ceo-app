@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" [ngClass]="{'border-danger': msgSubjectIn && msgSubjectIn.invalid && msgSubjectIn.touched}" formControlName="msgSubject" id="msgSubject" class="form-control" required placeholder="الموضوع">
+                                        <input type="text" [ngClass]="{'border-danger': msgSubjectIn && msgSubjectIn.invalid && msgSubjectIn.touched}" formControlName="subject" id="subject" class="form-control" required placeholder="الموضوع">
                                         <div class="invalid-feedback d-block" *ngIf="msgSubjectIn && msgSubjectIn.invalid && msgSubjectIn.touched">
                                             <div> هذا الحقل مطلوب. </div>
                                         </div>

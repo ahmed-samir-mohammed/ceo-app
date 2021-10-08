@@ -21,8 +21,7 @@ export class NewsDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(id => {
       this.id = id.get('id')
       this.getNewsItem()
-    },
-    err => {
+    }, err => {
       console.log(err);
     })
   }
