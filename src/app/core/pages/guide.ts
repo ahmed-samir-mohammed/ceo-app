@@ -11,3 +11,15 @@ export interface CeoList {
   twitter: string,
   position: string
 }
+
+export interface AddNewCeo {
+  id: number,
+  imageUrl: string,
+  name: string,
+  position: string,
+  email: string,
+  phone: string,
+  cvDescription: string,
+  cvUrl: string,
+  ceoId: number
+}

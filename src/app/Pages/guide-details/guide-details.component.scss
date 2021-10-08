@@ -45,3 +45,13 @@
     }
   }
 }
+
+.default-btn {
+  &:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      &:hover {
+          box-shadow: none;
+      }
+  }
+}

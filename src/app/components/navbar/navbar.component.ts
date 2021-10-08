@@ -19,7 +19,8 @@ export class NavbarComponent implements OnInit {
     getSettingNavbar() {
         this.setting.getAllSetting().subscribe((res: any) => {
             this.settingNavbar = res
-            console.log(res)
+        }, err => {
+            console.log(err);  
         })
     }
 

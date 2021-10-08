@@ -28,24 +28,24 @@ export class ContactUsComponent implements OnInit {
     this.contactUsForm = this.fb.group({
       name: [''],
       email: ['', [Validators.email]],
-      msgSubject: [''],
+      subject: [''],
       message: ['']
     })
   }
 
   get nameIn() { return this.contactUsForm.get('name'); }
   get emailIn() { return this.contactUsForm.get('email'); }
-  get msgSubjectIn() { return this.contactUsForm.get('msgSubject'); }
+  get msgSubjectIn() { return this.contactUsForm.get('subject'); }
   get messageIn() { return this.contactUsForm.get('message'); }
 
   submited(form: FormGroup) {
     $('.preloader-area').fadeIn();
     if (form.valid) {
       this.sendData.sendContactForm({
-        Name: this.nameIn?.value,
-        Email: this.emailIn?.value,
-        Subject: this.msgSubjectIn?.value,
-        Message: this.messageIn?.value
+        name: this.nameIn?.value,
+        email: this.emailIn?.value,
+        subject: this.msgSubjectIn?.value,
+        message: this.messageIn?.value
       }).subscribe(() => {}, err => {
         console.log({err})
       }, () => {
@@ -60,7 +60,8 @@ export class ContactUsComponent implements OnInit {
   getSettingContact() {
     this.setting.getAllSetting().subscribe((res: any) => {
       this.settingContact = res
-      console.log(res)
+    }, err => {
+      console.log(err);  
     })
   }
 }

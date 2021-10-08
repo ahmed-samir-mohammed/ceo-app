@@ -13,9 +13,14 @@ export class FooterComponent implements OnInit {
   constructor(private setting: SettingService) { }
 
   ngOnInit(): void {
+    this.getSettingFooter()
+  }
+
+  getSettingFooter() {
     this.setting.getAllSetting().subscribe((res: any) => {
       this.settingFooter = res
-      console.log(res)
+    }, err => {
+      console.log(err)
     })
   }
 
