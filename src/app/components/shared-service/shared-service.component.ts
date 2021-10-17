@@ -14,7 +14,6 @@ export class SharedServiceComponent implements OnInit {
     {
       id: 1,
       category: 'خدمة 1',
-      name: 'خدمة 1',
       imgName: 'service1.png',
       serviceList: [
         {

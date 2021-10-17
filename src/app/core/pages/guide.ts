@@ -13,7 +13,16 @@ export interface CeoList {
 }
 
 export interface AddNewCeo {
-  id: number,
+  imageUrl: string,
+  name: string,
+  position: string,
+  email: string,
+  phone: string,
+  cvDescription: string,
+  cvUrl: string,
+}
+
+export interface UpdateCeo {
   imageUrl: string,
   name: string,
   position: string,
