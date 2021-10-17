@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { GuideService } from 'src/app/core/services/guide.service';
-declare let $: any;
+import { Component, OnInit } from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { ActivatedRoute } from '@angular/router'
+import { GuideService } from 'src/app/core/services/guide.service'
+import { SendFileService } from 'src/app/core/services/send-file.service'
+import { SendImageService } from 'src/app/core/services/send-image.service'
+declare let $: any
 
 @Component({
   selector: 'app-guide-details',
@@ -11,28 +13,38 @@ declare let $: any;
 })
 export class GuideDetailsComponent implements OnInit {
 
-  sectionTitle = 'الأخبار ذات العلاقة'
-  classes: string = 'bg-f4f6fc'
+  sectionTitle = 'الأخبار ذات العلاقة';
+  classes: string = 'bg-f4f6fc';
   ceoItem: any;
   id!: any;
   updateCeo!: FormGroup;
+  imgPathUrl!: string;
+  fileName!: string;
+  responseFileName!: string;
+  responseImageName!: string;
 
-  constructor(private ceoListItem: GuideService, private route: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    private ceoListItem: GuideService, 
+    private route: ActivatedRoute, 
+    private fb: FormBuilder, 
+    private sendImage: SendImageService, 
+    private sendFile: SendFileService
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(id => {
       this.id = id.get('id')
     })
-    this.getCeoItem();
+    this.getCeoItem()
     this.updateCeoForm()
   }
 
   getCeoItem() {
     this.ceoListItem.getCeoById(this.id).subscribe((res: any) => {
-      this.ceoItem = res;
-      this.setValueInput();
+      this.ceoItem = res
+      this.setValueInInputs()
     }, err => {
-      console.log(err);
+      console.log(err)
     })
   }
 
@@ -42,51 +54,99 @@ export class GuideDetailsComponent implements OnInit {
       name: [''],
       position: [''],
       email: ['', [Validators.email]],
-      phone: [''],
       cvDescription: [''],
-      cvUrl: ['']
+      cvUrl: [''],
+      ceoId: ['']
     })
   }
 
-  get idIn() { return this.updateCeo.get('id'); }
-  get imageUrlIn() { return this.updateCeo.get('imageUrl'); }
-  get nameIn() { return this.updateCeo.get('name'); }
-  get positionIn() { return this.updateCeo.get('position'); }
-  get emailIn() { return this.updateCeo.get('email'); }
-  get phoneIn() { return this.updateCeo.get('phone'); }
-  get cvDescriptionIn() { return this.updateCeo.get('cvDescription'); }
-  get cvUrlIn() { return this.updateCeo.get('cvUrl'); }
+  get imageUrlIn() { return this.updateCeo.get('imageUrl') }
+  get nameIn() { return this.updateCeo.get('name') }
+  get positionIn() { return this.updateCeo.get('position') }
+  get emailIn() { return this.updateCeo.get('email') }
+  get cvDescriptionIn() { return this.updateCeo.get('cvDescription') }
+  get cvUrlIn() { return this.updateCeo.get('cvUrl') }
 
-  setValueInput() {
-    // this.imageUrlIn?.setValue(this.ceoItem.imageUrl)
+  setValueInInputs() {
+    this.imgPathUrl = `http://saudiceos.alishehata.info/Content/Data/Ceo/images/${this.ceoItem.imageUrl}`
     this.nameIn?.setValue(this.ceoItem.name)
     this.positionIn?.setValue(this.ceoItem.position)
     this.emailIn?.setValue(this.ceoItem.email)
-    this.phoneIn?.setValue(this.ceoItem.phone)
     this.cvDescriptionIn?.setValue(this.ceoItem.cvDescription)
-    // this.cvUrlIn?.setValue(this.ceoItem.cvUrl)
+    this.cvUrlIn?.setValue(this.ceoItem.cvUrl)
   }
-  
-  updateCeoSubmit(form: FormGroup) {
-    $('.preloader-area').fadeIn();
+
+  onSelectImage(e: any) {
+    if (e.target.files) {
+      const renderImage = new FileReader();
+      renderImage.readAsDataURL(e.target.files[0])
+      renderImage.onload = (event: any) => {
+        this.imgPathUrl = event.target.result
+        this.formDataImg()
+        this.imageUrlIn?.setValue(this.responseImageName)
+      }
+    }
+  }
+
+  onSelectFile(e: any) {
+    this.fileName = e.target.files[0].name
+    if (e.target.files) {
+      const renderFile = new FileReader();
+      renderFile.readAsDataURL(e.target.files[0])
+      renderFile.onload = (event: any) => {
+        this.formDataFile()
+        this.cvUrlIn?.setValue(this.responseFileName)
+      }
+    }
+  }
+
+  formDataImg() {
+    const formDataImg = new FormData();
+    formDataImg.append('img', this.imageUrlIn?.value);
+    this.sendImage.sendImage(formDataImg).subscribe(
+      (res) => {
+        this.responseImageName = res
+        console.log(this.responseImageName)
+      }, 
+      (err) => console.log(err)
+    )
+  }
+
+  formDataFile() {
+    const formDataFile = new FormData();
+    formDataFile.append('file', this.cvUrlIn?.value);
+    this.sendFile.sendFile(formDataFile).subscribe(
+      (res) => {
+        this.responseFileName = res
+        console.log(this.responseFileName)
+      }, 
+      (err) => console.log(err)
+    )
+  }
+
+  formData(form: FormGroup) {
     if (form.valid) {
       this.ceoListItem.updateNewCeo({
-        id: this.idIn?.value,
-        imageUrl: this.imageUrlIn?.value,
+        imageUrl: this.responseImageName,
         name: this.nameIn?.value,
         position: this.positionIn?.value,
         email: this.emailIn?.value,
-        phone: this.phoneIn?.value,
         cvDescription: this.cvDescriptionIn?.value,
-        cvUrl: this.cvUrlIn?.value,
+        cvUrl: this.responseFileName,
+        ceoId: this.id,
       }).subscribe(() => {
         console.log(form.value)
       }, err => {
         console.log(err)
       }, () => {
-        $('.preloader-area').fadeOut('slow');
-        $('#updateCeo').modal('hide');
+        $('.preloader-area').fadeOut('slow')
+        $('#updateCeo').modal('hide')
       })
     }
+  }
+
+  updateCeoSubmit(form: FormGroup) {
+    $('.preloader-area').fadeIn()
+    this.formData(form)
   }
 }

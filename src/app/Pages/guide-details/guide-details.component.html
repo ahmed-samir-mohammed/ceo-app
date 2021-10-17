@@ -47,94 +47,126 @@
 
 <div class="modal fade" id="updateCeo" tabindex="-1" aria-labelledby="changeDataLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">طلب تحديث بيانات</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="updateCeo" [formGroup]="updateCeo" (ngSubmit)="updateCeoSubmit(updateCeo)">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-12 col-md-12 d-flex align-items-center justify-content-center">
-                <label for="imageUrl">
-                  <input type="file" [ngClass]="{'border-danger': imageUrlIn && imageUrlIn.invalid && imageUrlIn.touched}" accept="image/*" required formControlName="imageUrl"/>
-                </label>
-                <div class="invalid-feedback d-block" *ngIf="imageUrlIn && imageUrlIn.invalid && imageUrlIn.touched">
-                    <div> هذا الحقل مطلوب. </div>
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                  <label for="name" class="col-form-label">الاسم</label>
-                  <input type="text" formControlName="name" [ngClass]="{'border-danger': nameIn && nameIn.invalid && nameIn.touched}" id="name" class="form-control" required placeholder="الاسم">
-                  <div class="invalid-feedback d-block" *ngIf="nameIn && nameIn.invalid && nameIn.touched">
-                    <div> هذا الحقل مطلوب. </div>
+      <form id="updateCeo" [formGroup]="updateCeo" (ngSubmit)="updateCeoSubmit(updateCeo)">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">طلب تحديث بيانات</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 d-flex align-items-center justify-content-center">
+                  <label for="imageUrl">
+                    <div class="edit-img">
+                      <h6>اضافة الصورة</h6>
+                    </div>
+                    <img [src]="imgPathUrl" *ngIf="imgPathUrl" height="150px" width="150px" alt="Ceo Image">
+                    <input 
+                      type="file"
+                      id="imageUrl" 
+                      class="d-none"
+                      [ngClass]="{'border-danger': imageUrlIn && imageUrlIn?.invalid && imageUrlIn?.touched}" 
+                      accept=".png, .jpg" 
+                      (change)="onSelectImage($event)"
+                    />
+                  </label>
+                  <div class="invalid-feedback d-block" *ngIf="imageUrlIn && imageUrlIn.invalid && imageUrlIn.touched">
+                      <div> هذا الحقل مطلوب. </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                  <label for="position" class="col-form-label">المنصب</label>
-                  <input type="text" formControlName="position" [ngClass]="{'border-danger': positionIn && positionIn.invalid && positionIn.touched}" id="position" class="form-control" required placeholder="المنصب">
-                  <div class="invalid-feedback d-block" *ngIf="positionIn && positionIn.invalid && positionIn.touched">
-                    <div> هذا الحقل مطلوب. </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <label for="name" class="col-form-label">الاسم</label>
+                    <input 
+                      type="text" 
+                      formControlName="name" 
+                      [ngClass]="{'border-danger': nameIn && nameIn.invalid && nameIn.touched}" 
+                      id="name" 
+                      class="form-control" 
+                      placeholder="الاسم" 
+                    />
+                    <div class="invalid-feedback d-block" *ngIf="nameIn && nameIn.invalid && nameIn.touched">
+                      <div> هذا الحقل مطلوب. </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                  <label for="email" class="col-form-label">البريد الإلكتروني</label>
-                  <input type="email" formControlName="email" [ngClass]="{'border-danger': emailIn && emailIn.invalid && emailIn.touched}" id="email" class="form-control" required
-                    placeholder="البريد الإلكتروني">
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <label for="position" class="col-form-label">المنصب</label>
+                    <input 
+                      type="text" 
+                      formControlName="position" 
+                      [ngClass]="{'border-danger': positionIn && positionIn.invalid && positionIn.touched}" 
+                      id="position" 
+                      class="form-control" 
+                      placeholder="المنصب"
+                    />
+                    <div class="invalid-feedback d-block" *ngIf="positionIn && positionIn.invalid && positionIn.touched">
+                      <div> هذا الحقل مطلوب. </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <label for="email" class="col-form-label">البريد الإلكتروني</label>
+                    <input 
+                      type="email" 
+                      formControlName="email" 
+                      [ngClass]="{'border-danger': emailIn && emailIn.invalid && emailIn.touched}" 
+                      id="email" 
+                      class="form-control"
+                      placeholder="البريد الإلكتروني"
+                    />
                     <div class="invalid-feedback d-block" *ngIf="emailIn && emailIn.invalid && emailIn.touched">
                       <div> هذا الحقل مطلوب. </div>
                     </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                  <label for="phone" class="col-form-label">رقم الجوال</label>
-                  <input type="text" formControlName="phone" [ngClass]="{'border-danger': phoneIn && phoneIn.invalid && phoneIn.touched}" id="phone" required class="form-control"
-                    placeholder="رقم الجوال">
-                    <div class="invalid-feedback d-block" *ngIf="phoneIn && phoneIn.invalid && phoneIn.touched">
-                      <div> هذا الحقل مطلوب. </div>
-                    </div>
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                  <label for="cvDescription" class="col-form-label">السيرة الذاتية</label>
-                  <input type="text" formControlName="cvDescription" [ngClass]="{'border-danger': cvDescriptionIn && cvDescriptionIn.invalid && cvDescriptionIn.touched}" id="cvDescription" class="form-control" required
-                    placeholder="السيرة الذاتية">
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <label for="cvDescription" class="col-form-label">السيرة الذاتية</label>
+                    <input 
+                      type="text" 
+                      formControlName="cvDescription" 
+                      [ngClass]="{'border-danger': cvDescriptionIn && cvDescriptionIn.invalid && cvDescriptionIn.touched}" 
+                      id="cvDescription" 
+                      class="form-control"
+                      placeholder="السيرة الذاتية" 
+                    />
                     <div class="invalid-feedback d-block" *ngIf="cvDescriptionIn && cvDescriptionIn.invalid && cvDescriptionIn.touched">
                       <div> هذا الحقل مطلوب. </div>
                     </div>
+                  </div>
                 </div>
-              </div>
-              <!-- <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                  <label for="name" class="col-form-label">الاسم</label>
-                  <textarea formControlName="message" class="form-control p-3 h-auto" id="message" rows="6" required
-                    placeholder="الرسالة"></textarea>
-                </div>
-              </div> -->
-              <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                  <label for="cvUrl" class="form-label">ارفاق ملف السيرة (غير الزامي)</label>
-                  <input class="form-control" required formControlName="cvUrl" [ngClass]="{'border-danger': cvUrlIn && cvUrlIn.invalid && cvUrlIn.touched}" type="file" id="cvUrl">
-                  <div class="invalid-feedback d-block" *ngIf="cvUrlIn && cvUrlIn.invalid && cvUrlIn.touched">
-                    <div> هذا الحقل مطلوب. </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <label for="cvUrl" class="file-upload">
+                      <span *ngIf="!cvUrlIn?.value">ارفاق ملف السيرة</span>
+                      <span *ngIf="cvUrlIn?.value">{{fileName}}</span>
+                      <input 
+                        class="d-none"
+                        [ngClass]="{'border-danger': cvUrlIn && cvUrlIn.invalid && cvUrlIn.touched}" 
+                        type="file" 
+                        accept=".docx, .pdf" 
+                        id="cvUrl"
+                        (change)="onSelectFile($event)"
+                      >
+                    </label>
+                    <div class="invalid-feedback d-block" *ngIf="cvUrlIn && cvUrlIn.invalid && cvUrlIn.touched">
+                      <div> هذا الحقل مطلوب. </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="default-btn mb-0" [disabled]="!updateCeo.valid" (click)="updateCeoSubmit(updateCeo)">ارسال</button>
-      </div>
-    </div>
+          <div class="modal-footer">
+            <button type="submit" class="default-btn mb-0" [disabled]="!updateCeo.valid">
+              ارسال
+            </button>
+          </div>
+        </div>
+    </form>
   </div>
 </div>

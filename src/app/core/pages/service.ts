@@ -1,9 +1,9 @@
 export interface ServiceList {
-  id: 5,
-  dateCreated: null,
+  id: number,
+  dateCreated: string,
   description: string,
   image: string,
-  file: string,
+  backgroundImage: string,
   code: string,
   link: string,
   title: string
