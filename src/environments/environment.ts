@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   BASE_URL: 'http://api.saudiceos.alishehata.info/api',
-  UPLOADER_API: 'http://saudiceos.alishehata.info/uploder'
+  UPLOADER_API: 'http://saudiceos.alishehata.info/uploder',
+  itemPerPage: 6
 };
 
 /*

@@ -4,20 +4,23 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewsService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllNews(): Observable<NewsList> {
     return this.http.get<NewsList>(`${env.BASE_URL}/news`);
   }
 
-  getNewsById(id: unknown): Observable<NewsList> {
-    return this.http.get<NewsList>(`${env.BASE_URL}/news/details/${id}`)
+  getAllNewsInPage(pageNo: number, pageSize: number): Observable<any> {
+    return this.http.get<any>(
+      `${env.BASE_URL}/news?pageNo=${pageNo}&pageSize=${pageSize}`
+    );
   }
 
+  getNewsById(id: unknown): Observable<NewsList> {
+    return this.http.get<NewsList>(`${env.BASE_URL}/news/details/${id}`);
+  }
 }

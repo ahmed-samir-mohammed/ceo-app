@@ -8,14 +8,14 @@
         <div *ngIf="showInLargScreen" class="row ">
             <div class="col-lg-3 col-6 " *ngFor="let item of serviceListItems | slice:0:4; let i=index">
                 <div class="features-box-one wow fadeInLeft" data-wow-delay=".1s">
-                    <div class="img-back" [style.backgroundImage]="'url(../../../assets/img/services-image/'+ item.imgName +')'">
+                    <div class="img-back" [style.backgroundImage]="'url(http://saudiceos.alishehata.info'+ item.imageUrl +')'">
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>{{item.category}}</h3>
+                                <h3>{{item.name}}</h3>
                                 <div class="service-link d-flex flex-column">
                                     <ul class="list-unstyled px-0">
-                                        <li  *ngFor="let linkName of item.serviceList">
-                                            <a routerLink="/service/{{linkName.id}}" class="mb-2">{{linkName.linkName}}</a>
+                                        <li  *ngFor="let item of item.servicesList">
+                                            <a routerLink="/service/{{item.id}}" class="mb-2">{{item.title}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -29,7 +29,6 @@
                     <a routerLink="/service" class="default-btn">
                         المزيد
                         <i class="bx bx-left-arrow-alt"></i>
-                        <span></span>
                     </a>
                 </div>
             </div>
@@ -38,14 +37,14 @@
         <div *ngIf="showInSmallScreen" class="row">
             <div class="col-lg-3 col-6 " *ngFor="let item of serviceListItems | slice:0:2; let i=index">
                 <div class="features-box-one wow fadeInLeft" data-wow-delay=".1s">
-                    <div class="img-back" [style.backgroundImage]="'url(../../../assets/img/services-image/'+ item.imgName +')'">
+                    <div class="img-back" [style.backgroundImage]="'url(http://saudiceos.alishehata.info'+ item.imageUrl +')'">
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>{{item.category}}</h3>
+                                <h3>{{item.name}}</h3>
                                 <div class="service-link d-flex flex-column">
                                     <ul class="list-unstyled px-0">
-                                        <li  *ngFor="let linkName of item.serviceList">
-                                            <a routerLink="/service/{{linkName.id}}" class="mb-2">{{linkName.linkName}}</a>
+                                        <li  *ngFor="let linkName of item.servicesList">
+                                            <a routerLink="/service/{{linkName.id}}" class="mb-2">{{linkName.title}}</a>
                                         </li>
                                     </ul>
                                 </div>

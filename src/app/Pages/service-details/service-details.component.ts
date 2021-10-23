@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ServiceService } from 'src/app/core/services/service.service';
 
 @Component({
   selector: 'app-service-details',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceDetailsComponent implements OnInit {
 
-  constructor() { }
+  serviceItem: any;
+  id!: unknown | undefined;
+  imageSlide: any
+
+  constructor(private serviceListItem: ServiceService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(id => {
+      this.id = id.get('id')
+      this.getServiceItem()
+    }, err => {
+      console.log(err);
+    })
   }
 
+  getServiceItem() {
+    this.serviceListItem.getServiceById(this.id).subscribe(res => {
+      this.serviceItem = res
+      console.log(this.serviceItem)
+      this.imageSlide = this.serviceItem.sliderImages?.split(',')
+      console.log(this.imageSlide)
+    },
+    err => {
+      console.log(err);
+    })
+  }
 }
