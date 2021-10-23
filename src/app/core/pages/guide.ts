@@ -1,6 +1,9 @@
+import { NewsList } from './news';
+
 export interface CeoList {
   id: number;
   image: string;
+  cvUrl: string;
   company: string;
   createdDate: string;
   cvDescription: string;
@@ -10,6 +13,8 @@ export interface CeoList {
   name: string;
   twitter: string;
   position: string;
+  email: string;
+  ceoNews: Array<NewsList>;
 }
 
 export interface AddNewCeo {
