@@ -1,4 +1,5 @@
-<div class="page-title-area" [style.backgroundImage]="'url(../../../../../assets/img/home-saas/feature1.png)'">
+<!-- <div class="page-title-area" [style.backgroundImage]="'url(http://saudiceos.alishehata.info'+ serviceItem?.backgroundImage +')'"> -->
+<div class="page-title-area" [style.backgroundImage]="'url(../../../../../assets/img/banner-slider/banner-img1.jpg)'">
     <div class="container">
         <div class="page-title-content">
             <h2>تفاصيل الخدمة</h2>
@@ -15,37 +16,31 @@
               <div class="article-content mb-3">
                   <div class="entry-meta">
                     <ul>
-                        <li>اسم الكاتيجوري</li>
+                      <li>{{serviceItem?.name}}</li>
                     </ul>
                   </div>
-                  <h3>اسم الخدمة</h3>
-                  <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. </p>
-                  <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. </p>
+                  <h3>{{serviceItem?.title}}</h3>
+                  <p>{{serviceItem?.description}}</p>
                   <div class="banner-btn mt-4">
                     <div class="d-flex">
-                        <a href="https://google.com" class="default-btn ms-2">
+                        <a href="{{serviceItem?.link}}" class="default-btn ms-2">
                             رابط الخدمة
                         </a>
-                        <a href="https://google.com" class="default-btn discount">
+                        <a href="{{serviceItem?.link}}" class="default-btn discount">
                             كود الخصم 
-                            <div class="d-inline-block fw-bold me-2">#SaudiCEO</div>
-                          </a>
+                            <div class="d-inline-block fw-bold me-2">{{serviceItem?.code}}</div>
+                        </a>
                     </div>
                 </div>
                 </div>
             </div>
             <div class="col-lg-4 col-12">
               <div class="article-image">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div id="slide" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="assets/img/services-image/service1.png" class="d-block w-100" alt="image">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="assets/img/services-image/service2.png" class="d-block w-100" alt="image">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="assets/img/services-image/service3.png" class="d-block w-100" alt="image">
+                    <div class="carousel-item" *ngFor="let item of imageSlide; let i = index"
+                    [ngClass]="{'active' : i == 0}">
+                      <img [src]="'http://saudiceos.alishehata.info' + item " class="d-block w-100" alt="image">
                     </div>
                   </div>
                 </div>

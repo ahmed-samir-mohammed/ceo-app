@@ -1,5 +1,6 @@
-import { ServiceList } from './../../core/pages/service';
+import { ServiceCategoryList, ServiceList } from './../../core/pages/service';
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from 'src/app/core/services/service.service';
 
 @Component({
   selector: 'app-shared-service',
@@ -10,60 +11,13 @@ export class SharedServiceComponent implements OnInit {
 
   showInLargScreen!: boolean;
   showInSmallScreen!: boolean;
-  serviceListItems: any[] = [
-    {
-      id: 1,
-      category: 'خدمة 1',
-      imgName: 'service1.png',
-      serviceList: [
-        {
-          id: 1,
-          linkName: 'خدمة 1'
-        }
-      ]
-    },
-    {
-      id: 2,
-      category: 'خدمة 2',
-      name: 'خدمة 2',
-      imgName: 'service2.png',
-      serviceList: [
-        {
-          id: 1,
-          linkName: 'خدمة 1'
-        }
-      ]
-    },
-    {
-      id: 3,
-      category: 'خدمة 3',
-      name: 'خدمة 3',
-      imgName: 'service3.png',
-      serviceList: [
-        {
-          id: 1,
-          linkName: 'خدمة 1'
-        }
-      ]
-    },
-    {
-      id: 4,
-      category: 'خدمة 4',
-      name: 'خدمة 4',
-      imgName: 'service4.png',
-      serviceList: [
-        {
-          id: 1,
-          linkName: 'خدمة 1'
-        }
-      ]
-    }
-  ];
+  serviceListItems: ServiceCategoryList[] = []
 
-  constructor() { }
+  constructor(private serviceList: ServiceService) { }
 
   ngOnInit(): void {
     this.changeViewInScreenSize();
+    this.getServiceList()
   }
 
   changeViewInScreenSize() {
@@ -74,5 +28,12 @@ export class SharedServiceComponent implements OnInit {
       this.showInLargScreen = false;
       this.showInSmallScreen = true;
     }
+  }
+
+  getServiceList() {
+    this.serviceList.getAllService().subscribe((res: any) => {
+      this.serviceListItems = res.data
+      console.log(this.serviceListItems)
+    })
   }
 }

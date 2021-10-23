@@ -1,29 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsList } from 'src/app/core/pages/news';
 import { NewsService } from 'src/app/core/services/news.service';
+import { environment as env } from 'src/environments/environment';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent implements OnInit {
+  newsListItems: NewsList[] = [];
+  pageNumber: number = 1;
+  itemPerPage: number = env.itemPerPage;
+  totalItemCount: number = 1;
 
-  newsListItems: NewsList[] = []
-
-  constructor(private newsList: NewsService) { }
+  constructor(private newsList: NewsService) {}
 
   ngOnInit(): void {
-    this.getAllNewsList()
+    this.getAllNewsList();
   }
 
   // Get All News List
   getAllNewsList() {
-    this.newsList.getAllNews().subscribe((res: any) => {
-      this.newsListItems = res.data
-    },
-    err => {
-      console.log(err);
-    })
+    this.newsList.getAllNewsInPage(this.pageNumber, env.itemPerPage).subscribe(
+      (res: any) => {
+        this.newsListItems = res.data;
+        this.totalItemCount = res.totalItemCount;
+        console.log(this.totalItemCount);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  changePage(pageNumber: number) {
+    this.pageNumber = pageNumber;
+    this.getAllNewsList();
   }
 }

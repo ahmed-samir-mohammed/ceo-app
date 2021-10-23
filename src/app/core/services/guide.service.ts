@@ -1,22 +1,27 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CeoList, AddNewCeo, UpdateCeo } from '../pages/guide';
 import { environment as env } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GuideService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllCeo(): Observable<CeoList> {
-    // let params = new HttpParams();
-    // params = params.append('pageNo', parameters.pageNo);
-    // params = params.append('pageSize', parameters.pageSize);
-    // params = params.append('searchText', parameters.searchText);
-    return this.http.get<CeoList>(`${env.BASE_URL}/ceo`/*, { params: params }*/);
+    return this.http.get<CeoList>(`${env.BASE_URL}/ceo`);
+  }
+
+  getAllCeoInPage(
+    pageNo: number,
+    pageSize: number,
+    searchText: string
+  ): Observable<any> {
+    return this.http.get<any>(
+      `${env.BASE_URL}/ceo?pageNo=${pageNo}&pageSize=${pageSize}&searchText=${searchText}`
+    );
   }
 
   getCeoById(id: any): Observable<CeoList> {
@@ -24,10 +29,10 @@ export class GuideService {
   }
 
   addNewCeo(body: any): Observable<AddNewCeo> {
-    return this.http.post<AddNewCeo>(`${env.BASE_URL}/ceo/addrequest`, body)
+    return this.http.post<AddNewCeo>(`${env.BASE_URL}/ceo/addrequest`, body);
   }
 
   updateNewCeo(body: any): Observable<UpdateCeo> {
-    return this.http.post<UpdateCeo>(`${env.BASE_URL}/ceo/updaterequest`, body)
+    return this.http.post<UpdateCeo>(`${env.BASE_URL}/ceo/updaterequest`, body);
   }
 }

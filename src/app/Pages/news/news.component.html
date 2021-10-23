@@ -9,15 +9,27 @@
 <section class="blog-area ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-6" *ngFor="let item of newsListItems">
+            <div class="col-lg-3 col-6" *ngFor="let item of newsListItems | paginate: {
+                itemsPerPage: itemPerPage,
+                currentPage: pageNumber,
+                totalItems: totalItemCount
+            }">
                 <div class="single-blog-post wow fadeInUp" data-wow-delay=".2s">
                     <div class="post-image">
-                        <a routerLink="/news/{{item.id}}"><img src="http://saudiceos.alishehata.info{{ item.image }}" alt="image"></a>
+                        <a routerLink="/news/{{item.id}}"><img src="http://saudiceos.alishehata.info{{ item.image }}"
+                                alt="image"></a>
                         <div class="date"><i class='bx bx-calendar'></i> {{item.createDate}} </div>
                     </div>
                     <div class="post-content">
                         <h3><a routerLink="/news/{{item.id}}"> {{item.title}} </a></h3>
                     </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <pagination-controls class="pagination-area" previousLabel="السابق" nextLabel="التالى"
+                        (pageChange)="changePage((pageNumber = $event))">
+                    </pagination-controls>
                 </div>
             </div>
         </div>

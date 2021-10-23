@@ -13,16 +13,21 @@
 <section class="features-area ptb-100 bg-f4f6fc">
     <div class="container max-width-1290">
         <div class="row">
-            <div class="col-lg-3 col-6" *ngFor="let item of serviceListItems | paginate : { itemsPerPage: 4, currentPage: p }">
+            <div class="col-lg-3 col-6" *ngFor="let item of serviceListItems | paginate : { 
+                itemsPerPage: itemPerPage,
+                currentPage: pageNumber,
+                totalItems: totalItemCount
+              }">
                 <div class="features-box-one wow fadeInUp">
-                    <div class="img-back" [style.backgroundImage]="'url(../../../assets/img/services-image/'+ item.imgName +')'">
+                    <div class="img-back"
+                        [style.backgroundImage]="'url(http://saudiceos.alishehata.info'+ item.imageUrl +')'">
                         <div class="overlay">
                             <div class="overlay-content">
-                                <h3>{{item.category}}</h3>
+                                <h3>{{item.name}}</h3>
                                 <div class="service-link d-flex flex-column">
                                     <ul class="list-unstyled px-0">
-                                        <li  *ngFor="let linkName of item.serviceList">
-                                            <a routerLink="/service/{{linkName.id}}" class="mb-2">{{linkName.linkName}}</a>
+                                        <li *ngFor="let linkName of item.servicesList">
+                                            <a routerLink="/service/{{linkName.id}}" class="mb-2">{{linkName.title}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -33,11 +38,8 @@
             </div>
             <div class="col-12">
                 <div class="d-flex justify-content-center">
-                    <pagination-controls
-                        class="pagination-area"
-                        previousLabel="السابق"
-                        nextLabel="التالى"
-                        (pageChange)="p = $event">
+                    <pagination-controls class="pagination-area" previousLabel="السابق" nextLabel="التالى"
+                        (pageChange)="changePage((pageNumber = $event))">
                     </pagination-controls>
                 </div>
             </div>

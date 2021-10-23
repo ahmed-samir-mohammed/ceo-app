@@ -1,0 +1,68 @@
+{
+    "data": [
+        {
+          "name": "خدمة 1",
+          "logo": "service1.png",
+          "serviceList": [
+                {
+                "id": 1,
+                "dateCreated": "string",
+                "description": "string",
+                "image": "string",
+                "backgroundImage": "string",
+                "code": "string",
+                "link": "string",
+                "title": "خدمة 1"
+                }
+            ]
+        },
+        {
+            "name": "خدمة 2",
+            "logo": "service2.png",
+            "serviceList": [
+                {
+                    "id": 2,
+                    "dateCreated": "string",
+                    "description": "string",
+                    "image": "string",
+                    "backgroundImage": "string",
+                    "code": "string",
+                    "link": "string",
+                    "title": "خدمة 2"
+                }
+            ]
+          },
+          {
+            "name": "خدمة 3",
+            "logo": "service3.png",
+            "serviceList": [
+                {
+                    "id": 3,
+                    "dateCreated": "string",
+                    "description": "string",
+                    "image": "string",
+                    "backgroundImage": "string",
+                    "code": "string",
+                    "link": "string",
+                    "title": "خدمة 3"
+                }
+            ]
+        },
+        {
+            "name": "خدمة 4",
+            "logo": "service4.png",
+            "serviceList": [
+                {
+                    "id": 4,
+                    "dateCreated": "string",
+                    "description": "string",
+                    "image": "string",
+                    "backgroundImage": "string",
+                    "code": "string",
+                    "link": "string",
+                    "title": "خدمة 4"
+                }
+            ]
+        }
+    ]
+}

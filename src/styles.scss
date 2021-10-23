@@ -1,3 +1,6 @@
+
+@import './assets/scss/core/core';
+
 /* You can add global styles to this file, and also import other style files */
 %custom-scroll {
     &::-webkit-scrollbar {
@@ -20,3 +23,6 @@ body {
 .modal-body {
     @extend %custom-scroll;
 }
+
+@import './assets/scss/components/componentImport';
+

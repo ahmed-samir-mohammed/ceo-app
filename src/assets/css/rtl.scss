@@ -56,97 +56,15 @@ body {
         }
     }
 }
-.main-banner-content {
-    .content {
-        margin-right: auto;
-        margin-left: 0;
-        padding-left: 170px !important;
-        padding-right: 0 !important;
-    }
-}
-.shape20 {
-    left: 55%;
-    right: auto;
-}
-.shape19 {
-    left: 35%;
-    right: auto;
-}
-.shape22 {
-    right: 5%;
-    left: auto;
-}
-.shape23 {
-    right: 10%;
-    left: auto;
-}
-.shape24 {
-    right: 25%;
-    left: auto;
-}
-.shape26 {
-    right: 30%;
-    left: auto;
-}
-.shape21 {
-    right: 0;
-    left: auto;
-}
-.banner-image {
-    border-radius: 0 0 80px 0;
-}
-.banner-img {
-    border-radius: 0 0 80px 0;
-}
-.services-content {
-    .content {
-        &.left-content {
-            padding-left: 30px;
-            padding-right: 0;
-            margin-right: auto;
-            margin-left: 0;
-        }
-    }
-}
-.feature-box {
-    i {
-        margin-left: 3px;
-        margin-right: 0;
-    }
-}
-.services-area {
-    &.bg-right-shape {
-        &::before {
-            left: 0;
-            right: auto;
-            transform: skewY(66deg);
-        }
-    }
-}
+
+
 .fadeInRight {
     animation-name: fadeInLeft;
 }
 .fadeInLeft {
     animation-name: fadeInRight;
 }
-.services-area {
-    &.bg-left-color {
-        &::before {
-            right: 0;
-            left: auto;
-            transform: skewY(-66deg);
-        }
-    }
-}
-.contact-cta-box {
-    padding: 30px 50px 30px 230px;
-}
-.contact-cta-box {
-    .default-btn {
-        left: 50px;
-        right: auto;
-    }
-}
+
 .single-feedback-item {
     .feedback-desc {
         padding-right: 30px;
@@ -368,26 +286,7 @@ body {
         }
     }
 }
-.banner-content-slides {
-    &.owl-theme {
-        .owl-nav {
-            text-align: right;
 
-            [class*=owl-] {
-                &.owl-next {
-                    margin-left: 0;
-                    margin-right: 5px;
-                    border-radius: 0 0 0 10px;
-                }
-                &.owl-prev {
-                    margin-right: 0;
-                    margin-left: 5px;
-                    border-radius: 0 10px 0 0;
-                }
-            }
-        }
-    }
-}
 .app-download-content {
     .btn-box {
         .play-store-btn {
@@ -446,75 +345,7 @@ body {
         }
     }
 }
-.chat-wrapper {
-    right: -20%;
-    left: auto;
 
-    .chat {
-        ul {
-            padding-right: 0;
-        }
-    }
-}
-.message-right {
-    text-align: left;
-    padding-left: 50px;
-    padding-right: 0;
-
-    img {
-        left: 0;
-        right: auto;
-    }
-    .message-text {
-        padding: 15px 15px 30px 30px;
-        border-radius: 15px 15px 15px 0;
-        text-align: right;
-
-        &::before {
-            left: 2px;
-            right: auto;
-        }
-    }
-    .message-time {
-        left: 13px;
-        right: auto;
-    }
-}
-.message-left {
-    text-align: right;
-    padding-right: 50px;
-    padding-left: 0;
-
-    img {
-        right: 0;
-        left: auto;
-    }
-    .message-text {
-        border-radius: 15px 15px 0 15px;
-        padding: 15px 15px 30px 30px;
-
-        &::before {
-            right: 3.4px;
-            left: auto;
-        }
-    }
-    .message-time {
-        left: 13px;
-        right: auto;
-    }
-}
-.single-partner-item {
-    text-align: right;
-}
-.services-area {
-    &.bg-right-color {
-        &::before {
-            left: 0;
-            right: auto;
-            transform: skewY(66deg);
-        }
-    }
-}
 .offset-lg-3 {
     margin-right: 25%;
     margin-left: 0;
@@ -794,18 +625,6 @@ Responsive CSS
         }
     }
 
-    .main-banner-content {
-        .content {
-            padding-right: 10px !important;
-            padding-left: 10px !important;
-        }
-    }
-    .services-content {
-        .content.left-content {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
-        }
-    }
     .single-feedback-item {
         .feedback-desc {
             margin-right: 0 !important;
@@ -821,10 +640,7 @@ Responsive CSS
             text-align: right !important;
         }
     }
-    .chat-wrapper {
-        left: 0% !important;
-        right: auto !important;
-    }
+
     .go-top {
         left: 10px !important;
         right: auto !important;
@@ -841,12 +657,7 @@ Responsive CSS
             text-align: right !important;
         }
     }
-    .banner-content {
-        .content {
-            padding-right: 15px !important;
-            padding-left: 15px !important;
-        }
-    }
+
 
 }
 
@@ -871,54 +682,9 @@ Responsive CSS
         }
     }
 
-    .main-banner-content {
-        .content {
-            padding-right: 10px !important;
-            padding-left: 10px !important;
-        }
-    }
-    .services-content {
-        .content {
-            &.left-content {
-                padding-right: 0 !important;
-                padding-left: 0 !important;
-            }
-        }
-    }
     .faq-accordion {
         .accordion {
             text-align: right !important;
         }
     }
-    .contact-cta-box {
-        padding: 30px 30px 30px 200px !important;
-
-        .default-btn {
-            left: 30px !important;
-            right: auto !important;
-        }
-    }
-    .chat-wrapper {
-        left: 0% !important;
-        right: auto !important;
-    }
-
-}
-
-@media only screen and (min-width : 992px) and (max-width : 1199px) {
-
-    .main-banner-content {
-        .content {
-            padding-left: 80px !important;
-        }
-    }
-    .services-content {
-        .content {
-            &.left-content {
-                padding-left: 15px !important;
-                padding-right: 0 !important;
-            }
-        }
-    }
-
 }
