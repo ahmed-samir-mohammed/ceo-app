@@ -5,34 +5,39 @@ import { ServiceService } from 'src/app/core/services/service.service';
 @Component({
   selector: 'app-service-details',
   templateUrl: './service-details.component.html',
-  styleUrls: ['./service-details.component.scss']
+  styleUrls: ['./service-details.component.scss'],
 })
 export class ServiceDetailsComponent implements OnInit {
-
   serviceItem: any;
   id!: unknown | undefined;
-  imageSlide: any
+  imageSlide: any;
 
-  constructor(private serviceListItem: ServiceService, private route: ActivatedRoute) {}
+  constructor(
+    private serviceListItem: ServiceService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(id => {
-      this.id = id.get('id')
-      this.getServiceItem()
-    }, err => {
-      console.log(err);
-    })
+    this.route.paramMap.subscribe(
+      (id) => {
+        this.id = id.get('id');
+        this.getServiceItem();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   getServiceItem() {
-    this.serviceListItem.getServiceById(this.id).subscribe(res => {
-      this.serviceItem = res
-      console.log(this.serviceItem)
-      this.imageSlide = this.serviceItem.sliderImages?.split(',')
-      console.log(this.imageSlide)
-    },
-    err => {
-      console.log(err);
-    })
+    this.serviceListItem.getServiceById(this.id).subscribe(
+      (res) => {
+        this.serviceItem = res;
+        this.imageSlide = this.serviceItem.sliderImages?.split(',');
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

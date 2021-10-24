@@ -79,7 +79,6 @@ export class GuideDetailsComponent implements OnInit {
     this.ceoListItem.getCeoById(this.id).subscribe(
       (res: any) => {
         this.ceoItem = res;
-        console.log(this.ceoItem);
         this.setValueInInputs();
       },
       (err) => {

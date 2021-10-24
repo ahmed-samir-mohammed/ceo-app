@@ -26,7 +26,6 @@ export class NewsComponent implements OnInit {
       (res: any) => {
         this.newsListItems = res.data;
         this.totalItemCount = res.totalItemCount;
-        console.log(this.totalItemCount);
       },
       (err) => {
         console.log(err);
