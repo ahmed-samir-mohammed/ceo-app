@@ -9,6 +9,7 @@ export interface CeoList {
   cvDescription: string;
   cvNote: string;
   imageUrl: string;
+  nationalIDImageUrl: string;
   linkedIn: string;
   name: string;
   twitter: string;
@@ -19,6 +20,7 @@ export interface CeoList {
 
 export interface AddNewCeo {
   imageUrl: string;
+  nationalIDImageUrl: string;
   name: string;
   position: string;
   email: string;

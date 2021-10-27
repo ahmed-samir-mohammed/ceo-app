@@ -57,13 +57,14 @@
 }
 
 label {
-  &[for="imageUrl"] {
+  &[for="imageUrl"],
+  &[for="nationalIDimgPathUrl"] {
     position: relative;
     cursor: pointer;
     border-radius: 0.5rem;
     overflow: hidden;
-    max-width: 10rem;
-    max-height: 10rem;
+    width: 150px;
+    height: 150px;
   }
   .edit-img {
     position: absolute;
