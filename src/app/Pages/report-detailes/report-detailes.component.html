@@ -1,36 +1,36 @@
 <div class="page-title-area">
-    <div class="container">
-        <div class="page-title-content">
-            <h2>التقارير</h2>
-        </div>
+  <div class="container">
+    <div class="page-title-content">
+      <h2>التقارير</h2>
     </div>
   </div>
+</div>
 
-  <section class="blog-details-area ptb-100">
-    <div class="container">
-      <div class="contact-inner">
-        <div class="blog-details-desc">
-          <div class="row">
-            <div class="col-lg-4 col-12">
-              <div class="article-image">
-                <img src="http://saudiceos.alishehata.info{{ reporItem?.image }}" alt="image">
-              </div>
+<section class="blog-details-area ptb-100">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="blog-details-desc">
+        <div class="row">
+          <div class="col-lg-4 col-12">
+            <div class="article-image">
+              <img src="http://saudiceos.alishehata.info{{ reporItem?.image }}" alt="image">
             </div>
-            <div class="col-lg-8 col-12 d-flex align-items-center">
-              <div class="article-content">
-                  <div class="entry-meta">
-                    <ul>
-                        <li><i class='bx bx-calendar'></i>{{reporItem?.dateCreated}}</li>
-                    </ul>
-                  </div>
-                  <h3>{{reporItem?.title}}</h3>
-                  <p>{{reporItem?.description}}</p>
-                </div>
+          </div>
+          <div class="col-lg-8 col-12 d-flex align-items-center">
+            <div class="article-content">
+              <div class="entry-meta">
+                <ul>
+                  <li><i class='bx bx-calendar'></i>{{reporItem?.dateCreated}}</li>
+                </ul>
+              </div>
+              <h3>{{reporItem?.title}}</h3>
+              <div [innerHTML]="reporItem?.description"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <app-shared-report [classes]="classes"></app-shared-report>
+<app-shared-report [classes]="classes"></app-shared-report>

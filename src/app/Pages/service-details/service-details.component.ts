@@ -34,6 +34,7 @@ export class ServiceDetailsComponent implements OnInit {
       (res) => {
         this.serviceItem = res;
         this.imageSlide = this.serviceItem.sliderImages?.split(',');
+        console.log(this.serviceItem);
       },
       (err) => {
         console.log(err);
