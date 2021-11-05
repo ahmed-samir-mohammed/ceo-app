@@ -138,7 +138,8 @@ export class GuideDetailsComponent implements OnInit {
 
   onSelectImage(e: any) {
     if (e.target.files) {
-      this.imgName = e.target.files[0].name;
+      $('.preloader-area').fadeIn();
+      this.imgName = e.target.files[0];
       const renderImage = new FileReader();
       renderImage.readAsDataURL(e.target.files[0]);
       renderImage.onload = (event: any) => {
@@ -150,6 +151,7 @@ export class GuideDetailsComponent implements OnInit {
 
   onSelectNationalIDImage(e: any) {
     if (e.target.files) {
+      $('.preloader-area').fadeIn();
       this.nationalIDImgName = e.target.files[0];
       const renderNationalIDImage = new FileReader();
       renderNationalIDImage.readAsDataURL(e.target.files[0]);
@@ -162,12 +164,12 @@ export class GuideDetailsComponent implements OnInit {
 
   onSelectFile(e: any) {
     if (e.target.files) {
-      this.fileName = e.target.files[0].name;
+      $('.preloader-area').fadeIn();
+      this.fileName = e.target.files[0];
       const renderFile = new FileReader();
       renderFile.readAsDataURL(e.target.files[0]);
       renderFile.onload = () => {
         this.formDataFile();
-        // this.cvUrlIn?.setValue(event.target.files[0].name);
       };
     }
   }
@@ -178,7 +180,7 @@ export class GuideDetailsComponent implements OnInit {
     this.sendImage.sendImage(formDataImg).subscribe(
       (res) => {
         this.responseImageName = res;
-        console.log(this.responseImageName);
+        $('.preloader-area').fadeOut('slow');
       },
       (err) => console.log(err)
     );
@@ -190,7 +192,7 @@ export class GuideDetailsComponent implements OnInit {
     this.sendImage.sendImage(formNationalIDDataImg).subscribe(
       (res) => {
         this.responseNationalIDImageName = res;
-        console.log(this.responseNationalIDImageName);
+        $('.preloader-area').fadeOut('slow');
       },
       (err) => console.log(err)
     );
@@ -202,7 +204,7 @@ export class GuideDetailsComponent implements OnInit {
     this.sendFile.sendFile(formDataFile).subscribe(
       (res) => {
         this.responseFileName = res;
-        console.log(this.responseFileName);
+        $('.preloader-area').fadeOut('slow');
       },
       (err) => console.log(err)
     );
@@ -222,9 +224,7 @@ export class GuideDetailsComponent implements OnInit {
           ceoId: this.id,
         })
         .subscribe(
-          () => {
-            console.log(form.value);
-          },
+          () => {},
           (err) => {
             console.log(err);
           },
@@ -238,9 +238,7 @@ export class GuideDetailsComponent implements OnInit {
 
   updateCeoSubmit(form: FormGroup) {
     $('.preloader-area').fadeIn();
-    if (this.imgName) {
-      this.responseImageName = 'imgName';
-    } else {
+    if (!this.imgName) {
       this.responseImageName = this.ceoItem.imageUrl;
     }
     this.formData(form);

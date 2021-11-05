@@ -5,19 +5,18 @@ import { ServiceService } from 'src/app/core/services/service.service';
 @Component({
   selector: 'app-shared-service',
   templateUrl: './shared-service.component.html',
-  styleUrls: ['./shared-service.component.scss']
+  styleUrls: ['./shared-service.component.scss'],
 })
 export class SharedServiceComponent implements OnInit {
-
   showInLargScreen!: boolean;
   showInSmallScreen!: boolean;
-  serviceListItems: ServiceCategoryList[] = []
+  serviceListItems: ServiceCategoryList[] = [];
 
-  constructor(private serviceList: ServiceService) { }
+  constructor(private serviceList: ServiceService) {}
 
   ngOnInit(): void {
     this.changeViewInScreenSize();
-    this.getServiceList()
+    this.getServiceList();
   }
 
   changeViewInScreenSize() {
@@ -32,8 +31,7 @@ export class SharedServiceComponent implements OnInit {
 
   getServiceList() {
     this.serviceList.getAllService().subscribe((res: any) => {
-      this.serviceListItems = res.data
-      console.log(this.serviceListItems)
-    })
+      this.serviceListItems = res.data;
+    });
   }
 }

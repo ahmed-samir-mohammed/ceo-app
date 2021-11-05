@@ -98,6 +98,7 @@ export class GuideComponent implements OnInit {
 
   onSelectImage(e: any) {
     if (e.target.files) {
+      $('.preloader-area').fadeIn();
       this.imgName = e.target.files[0];
       const renderImage = new FileReader();
       renderImage.readAsDataURL(e.target.files[0]);
@@ -110,18 +111,20 @@ export class GuideComponent implements OnInit {
 
   onSelectNationalIDImage(e: any) {
     if (e.target.files) {
+      $('.preloader-area').fadeIn();
       this.nationalIDImgName = e.target.files[0];
       const renderNationalIDImage = new FileReader();
       renderNationalIDImage.readAsDataURL(e.target.files[0]);
       renderNationalIDImage.onload = (event: any) => {
         this.nationalIDimgPathUrl = event.target.result;
-        this.formDataImg();
+        this.formNationalIDDataImg();
       };
     }
   }
 
   onSelectFile(e: any) {
     if (e.target.files) {
+      $('.preloader-area').fadeIn();
       this.fileName = e.target.files[0];
       const renderFile = new FileReader();
       renderFile.readAsDataURL(e.target.files[0]);
@@ -137,7 +140,7 @@ export class GuideComponent implements OnInit {
     this.sendImage.sendImage(formDataImg).subscribe(
       (res) => {
         this.responseImageName = res;
-        console.log(this.responseImageName);
+        $('.preloader-area').fadeOut('slow');
       },
       (err) => console.log(err)
     );
@@ -149,7 +152,7 @@ export class GuideComponent implements OnInit {
     this.sendImage.sendImage(formNationalIDDataImg).subscribe(
       (res) => {
         this.responseNationalIDImageName = res;
-        console.log(this.responseNationalIDImageName);
+        $('.preloader-area').fadeOut('slow');
       },
       (err) => console.log(err)
     );
@@ -161,7 +164,7 @@ export class GuideComponent implements OnInit {
     this.sendFile.sendFile(formDataFile).subscribe(
       (res) => {
         this.responseFileName = res;
-        console.log(this.responseFileName);
+        $('.preloader-area').fadeOut('slow');
       },
       (err) => console.log(err)
     );
@@ -169,7 +172,6 @@ export class GuideComponent implements OnInit {
 
   formData(form: FormGroup) {
     if (form.valid) {
-      console.log(this.responseFileName);
       this.ceoListItem
         .addNewCeo({
           imageUrl: this.responseImageName,
@@ -181,9 +183,7 @@ export class GuideComponent implements OnInit {
           cvUrl: this.responseFileName,
         })
         .subscribe(
-          () => {
-            console.log(form.value);
-          },
+          () => {},
           (err) => {
             console.log(err);
           },
