@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GuideService } from 'src/app/core/services/guide.service';
 import { environment as env } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 declare let $: any;
 
 @Component({
@@ -32,7 +33,8 @@ export class GuideComponent implements OnInit {
     private ceoListItem: GuideService,
     private fb: FormBuilder,
     private sendImage: SendImageService,
-    private sendFile: SendFileService
+    private sendFile: SendFileService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -190,9 +192,16 @@ export class GuideComponent implements OnInit {
           () => {
             $('.preloader-area').fadeOut('slow');
             $('#addCeo').modal('hide');
+            this.showSuccess();
           }
         );
     }
+  }
+
+  showSuccess() {
+    this.toastr.success('', 'تم استلام طلب الإضافة بنجاح.', {
+      positionClass: 'toast-bottom-right',
+    });
   }
 
   addCeoSubmit(form: FormGroup) {

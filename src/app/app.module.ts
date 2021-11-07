@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NewsComponent } from './pages/news/news.component';
 import { ContactUsComponent } from './Pages/contact-us/contact-us.component';
-import { ServicesComponent } from './pages/services/services.component'
+import { ServicesComponent } from './pages/services/services.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PreloaderComponent } from './components/preloader/preloader.component';
@@ -26,13 +26,12 @@ import { AdsBanerComponent } from './components/ads-baner/ads-baner.component';
 import { ServiceDetailsComponent } from './Pages/service-details/service-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TermsComponent } from './Pages/terms/terms.component';
 import { EvacuationResponsibilatyComponent } from './Pages/evacuation-responsibilaty/evacuation-responsibilaty.component';
 import { httpInterceptProviders } from './core/interceptors';
-
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -68,10 +67,11 @@ import { httpInterceptProviders } from './core/interceptors';
     FormsModule,
     Ng2SearchPipeModule,
     NgxSpinnerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ToastrModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [httpInterceptProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

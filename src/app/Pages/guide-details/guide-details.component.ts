@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { GuideService } from 'src/app/core/services/guide.service';
 import { SendFileService } from 'src/app/core/services/send-file.service';
 import { SendImageService } from 'src/app/core/services/send-image.service';
+import { ToastrService } from 'ngx-toastr';
 declare let $: any;
 
 @Component({
@@ -52,13 +53,15 @@ export class GuideDetailsComponent implements OnInit {
   responseNationalIDImageName: string = '';
   showInLargScreen: boolean = true;
   showInSmallScreen: boolean = false;
+  showNewsSection: boolean = false;
 
   constructor(
     private ceoListItem: GuideService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private sendImage: SendImageService,
-    private sendFile: SendFileService
+    private sendFile: SendFileService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -84,6 +87,9 @@ export class GuideDetailsComponent implements OnInit {
     this.ceoListItem.getCeoById(this.id).subscribe(
       (res: any) => {
         this.ceoItem = res;
+        if (this.ceoItem.ceoNews.length > 0) {
+          this.showNewsSection = true;
+        }
         this.setValueInInputs();
       },
       (err) => {
@@ -231,9 +237,20 @@ export class GuideDetailsComponent implements OnInit {
           () => {
             $('.preloader-area').fadeOut('slow');
             $('#updateCeo').modal('hide');
+            this.showSuccess();
           }
         );
     }
+  }
+
+  showSuccess() {
+    this.toastr.success(
+      '',
+      'تم استلام طلب التحديث بنجاح، وسيتم معالجته في أقرب وقت.',
+      {
+        positionClass: 'toast-bottom-right',
+      }
+    );
   }
 
   updateCeoSubmit(form: FormGroup) {
