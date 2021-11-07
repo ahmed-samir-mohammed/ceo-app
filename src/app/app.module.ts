@@ -32,6 +32,7 @@ import { TermsComponent } from './Pages/terms/terms.component';
 import { EvacuationResponsibilatyComponent } from './Pages/evacuation-responsibilaty/evacuation-responsibilaty.component';
 import { httpInterceptProviders } from './core/interceptors';
 import { ToastrModule } from 'ngx-toastr';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgxSpinnerModule,
     NgxPaginationModule,
     ToastrModule.forRoot(),
+    CKEditorModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [httpInterceptProviders],

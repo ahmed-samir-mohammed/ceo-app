@@ -134,9 +134,11 @@
               <div class="col-lg-12 col-md-12">
                 <div class="form-group">
                   <label for="cvDescription" class="col-form-label">السيرة الذاتية</label>
-                  <input type="text" formControlName="cvDescription"
+                  <ckeditor formControlName="cvDescription" [editor]="Editor" id="cvDescription">
+                  </ckeditor>
+                  <!-- <input type="text" formControlName="cvDescription"
                     [ngClass]="{'border-danger': cvDescriptionIn && cvDescriptionIn.invalid && cvDescriptionIn.touched}"
-                    id="cvDescription" class="form-control" placeholder="السيرة الذاتية" />
+                    id="cvDescription" class="form-control" placeholder="السيرة الذاتية" /> -->
                   <div class="invalid-feedback d-block"
                     *ngIf="cvDescriptionIn && cvDescriptionIn.invalid && cvDescriptionIn.touched">
                     <div> هذا الحقل مطلوب. </div>

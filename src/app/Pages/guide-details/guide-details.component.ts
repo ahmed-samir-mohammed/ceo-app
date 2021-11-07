@@ -6,6 +6,7 @@ import { GuideService } from 'src/app/core/services/guide.service';
 import { SendFileService } from 'src/app/core/services/send-file.service';
 import { SendImageService } from 'src/app/core/services/send-image.service';
 import { ToastrService } from 'ngx-toastr';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 declare let $: any;
 
 @Component({
@@ -14,6 +15,7 @@ declare let $: any;
   styleUrls: ['./guide-details.component.scss'],
 })
 export class GuideDetailsComponent implements OnInit {
+  Editor: any = ClassicEditor;
   ceoItem: CeoList = {
     id: 0,
     image: '',

@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GuideService } from 'src/app/core/services/guide.service';
 import { environment as env } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 declare let $: any;
 
 @Component({
@@ -14,6 +15,7 @@ declare let $: any;
   styleUrls: ['./guide.component.scss'],
 })
 export class GuideComponent implements OnInit {
+  Editor: any = ClassicEditor;
   ceoList: CeoList[] = [];
   pageNumber: number = 1;
   itemPerPage: number = env.itemPerPage;
@@ -174,6 +176,7 @@ export class GuideComponent implements OnInit {
 
   formData(form: FormGroup) {
     if (form.valid) {
+      console.log(form.value);
       this.ceoListItem
         .addNewCeo({
           imageUrl: this.responseImageName,
