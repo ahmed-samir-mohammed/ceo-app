@@ -8,20 +8,23 @@ declare let $: any;
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.scss']
+  styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent implements OnInit {
-
   showSendDone: boolean = false;
   showContactForm: boolean = true;
   contactUsForm!: FormGroup;
   settingContact: any;
 
-  constructor(private fb: FormBuilder, private sendData: ContactUsService, private setting: SettingService) {}
+  constructor(
+    private fb: FormBuilder,
+    private sendData: ContactUsService,
+    private setting: SettingService
+  ) {}
 
   ngOnInit(): void {
     this.contactSend();
-    this.getSettingContact()
+    this.getSettingContact();
   }
 
   contactSend() {
@@ -29,39 +32,56 @@ export class ContactUsComponent implements OnInit {
       name: [''],
       email: ['', [Validators.email]],
       subject: [''],
-      message: ['']
-    })
+      message: [''],
+    });
   }
 
-  get nameIn() { return this.contactUsForm.get('name'); }
-  get emailIn() { return this.contactUsForm.get('email'); }
-  get msgSubjectIn() { return this.contactUsForm.get('subject'); }
-  get messageIn() { return this.contactUsForm.get('message'); }
+  get nameIn() {
+    return this.contactUsForm.get('name');
+  }
+  get emailIn() {
+    return this.contactUsForm.get('email');
+  }
+  get msgSubjectIn() {
+    return this.contactUsForm.get('subject');
+  }
+  get messageIn() {
+    return this.contactUsForm.get('message');
+  }
 
   submited(form: FormGroup) {
-    $('.preloader-area').fadeIn();
+    debugger;
+    $('.preloader-area').fadeIn(500);
     if (form.valid) {
-      this.sendData.sendContactForm({
-        name: this.nameIn?.value,
-        email: this.emailIn?.value,
-        subject: this.msgSubjectIn?.value,
-        message: this.messageIn?.value
-      }).subscribe(() => {}, err => {
-        console.log({err})
-      }, () => {
-        this.showSendDone = true;
-        this.showContactForm = false;
-        $('.preloader-area').fadeOut('slow');
-      })
-
+      this.sendData
+        .sendContactForm({
+          name: this.nameIn?.value,
+          email: this.emailIn?.value,
+          subject: this.msgSubjectIn?.value,
+          message: this.messageIn?.value,
+        })
+        .subscribe(
+          () => {},
+          (err) => {
+            console.log(err);
+          },
+          () => {
+            this.showSendDone = true;
+            this.showContactForm = false;
+            $('.preloader-area').fadeOut(500);
+          }
+        );
     }
   }
 
   getSettingContact() {
-    this.setting.getAllSetting().subscribe((res: any) => {
-      this.settingContact = res
-    }, err => {
-      console.log(err);  
-    })
+    this.setting.getAllSetting().subscribe(
+      (res: any) => {
+        this.settingContact = res;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

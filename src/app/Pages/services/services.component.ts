@@ -27,7 +27,6 @@ export class ServicesComponent implements OnInit {
         (res: any) => {
           this.serviceListItems = res.data;
           this.totalItemCount = res.totalItemCount;
-          console.log(this.totalItemCount);
         },
         (err) => {
           console.log(err);

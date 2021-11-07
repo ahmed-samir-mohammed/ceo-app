@@ -26,7 +26,6 @@ export class ReportComponent implements OnInit {
       .subscribe((res: any) => {
         this.reportListItems = res.data;
         this.totalItemCount = res.totalItemCount;
-        console.log(this.totalItemCount);
       });
   }
 

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GuideService } from 'src/app/core/services/guide.service';
 import { environment as env } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 declare let $: any;
 
 @Component({
@@ -19,16 +20,21 @@ export class GuideComponent implements OnInit {
   totalItemCount: number = 8;
   searchText: string = '';
   addCeo!: FormGroup;
-  imgPathUrl!: string;
-  fileName!: string;
-  responseFileName!: string;
-  responseImageName!: string;
+  imgPathUrl: string = '';
+  nationalIDimgPathUrl: any;
+  fileName: any;
+  imgName: any;
+  nationalIDImgName: any;
+  responseFileName: string = '';
+  responseImageName: string = '';
+  responseNationalIDImageName: string = '';
 
   constructor(
     private ceoListItem: GuideService,
     private fb: FormBuilder,
     private sendImage: SendImageService,
-    private sendFile: SendFileService
+    private sendFile: SendFileService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +65,7 @@ export class GuideComponent implements OnInit {
   addCeoForm() {
     this.addCeo = this.fb.group({
       imageUrl: [''],
+      nationalIDImageUrl: [''],
       name: [''],
       position: [''],
       email: ['', [Validators.email]],
@@ -67,8 +74,12 @@ export class GuideComponent implements OnInit {
     });
   }
 
+  //#region Get Inputs
   get imageUrlIn() {
     return this.addCeo?.get('imageUrl');
+  }
+  get nationalIDUrlIn() {
+    return this.addCeo?.get('nationalIDImageUrl');
   }
   get nameIn() {
     return this.addCeo?.get('name');
@@ -85,38 +96,65 @@ export class GuideComponent implements OnInit {
   get cvUrlIn() {
     return this.addCeo?.get('cvUrl');
   }
+  //#endregion
 
   onSelectImage(e: any) {
     if (e.target.files) {
+      $('.preloader-area').fadeIn();
+      this.imgName = e.target.files[0];
       const renderImage = new FileReader();
       renderImage.readAsDataURL(e.target.files[0]);
       renderImage.onload = (event: any) => {
         this.imgPathUrl = event.target.result;
         this.formDataImg();
-        this.imageUrlIn?.setValue(this.responseImageName);
+      };
+    }
+  }
+
+  onSelectNationalIDImage(e: any) {
+    if (e.target.files) {
+      $('.preloader-area').fadeIn();
+      this.nationalIDImgName = e.target.files[0];
+      const renderNationalIDImage = new FileReader();
+      renderNationalIDImage.readAsDataURL(e.target.files[0]);
+      renderNationalIDImage.onload = (event: any) => {
+        this.nationalIDimgPathUrl = event.target.result;
+        this.formNationalIDDataImg();
       };
     }
   }
 
   onSelectFile(e: any) {
-    this.fileName = e.target.files[0].name;
     if (e.target.files) {
+      $('.preloader-area').fadeIn();
+      this.fileName = e.target.files[0];
       const renderFile = new FileReader();
       renderFile.readAsDataURL(e.target.files[0]);
-      renderFile.onload = (event: any) => {
+      renderFile.onload = () => {
         this.formDataFile();
-        this.cvUrlIn?.setValue(this.responseFileName);
       };
     }
   }
 
   formDataImg() {
     const formDataImg = new FormData();
-    formDataImg.append('img', this.imageUrlIn?.value);
+    formDataImg.append('img', this.imgName);
     this.sendImage.sendImage(formDataImg).subscribe(
       (res) => {
         this.responseImageName = res;
-        console.log(this.responseImageName);
+        $('.preloader-area').fadeOut('slow');
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  formNationalIDDataImg() {
+    const formNationalIDDataImg = new FormData();
+    formNationalIDDataImg.append('img', this.nationalIDImgName);
+    this.sendImage.sendImage(formNationalIDDataImg).subscribe(
+      (res) => {
+        this.responseNationalIDImageName = res;
+        $('.preloader-area').fadeOut('slow');
       },
       (err) => console.log(err)
     );
@@ -124,11 +162,11 @@ export class GuideComponent implements OnInit {
 
   formDataFile() {
     const formDataFile = new FormData();
-    formDataFile.append('file', this.cvUrlIn?.value);
+    formDataFile.append('file', this.fileName);
     this.sendFile.sendFile(formDataFile).subscribe(
       (res) => {
         this.responseFileName = res;
-        console.log(this.responseFileName);
+        $('.preloader-area').fadeOut('slow');
       },
       (err) => console.log(err)
     );
@@ -139,6 +177,7 @@ export class GuideComponent implements OnInit {
       this.ceoListItem
         .addNewCeo({
           imageUrl: this.responseImageName,
+          nationalIDImageUrl: this.responseNationalIDImageName,
           name: this.nameIn?.value,
           position: this.positionIn?.value,
           email: this.emailIn?.value,
@@ -146,22 +185,27 @@ export class GuideComponent implements OnInit {
           cvUrl: this.responseFileName,
         })
         .subscribe(
-          () => {
-            console.log(form.value);
-          },
+          () => {},
           (err) => {
             console.log(err);
           },
           () => {
             $('.preloader-area').fadeOut('slow');
             $('#addCeo').modal('hide');
+            this.showSuccess();
           }
         );
     }
   }
 
+  showSuccess() {
+    this.toastr.success('', 'تم استلام طلب الإضافة بنجاح.', {
+      positionClass: 'toast-bottom-right',
+    });
+  }
+
   addCeoSubmit(form: FormGroup) {
     $('.preloader-area').fadeIn();
-    console.log(form);
+    this.formData(form);
   }
 }
