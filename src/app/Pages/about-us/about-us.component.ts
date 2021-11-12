@@ -1,16 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingService } from 'src/app/core/services/setting.service';
 
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss']
+  styleUrls: ['./about-us.component.scss'],
 })
 export class AboutUsComponent implements OnInit {
+  settingAbout: any;
 
-  constructor() { }
+  constructor(private setting: SettingService) {}
 
   ngOnInit(): void {
-    window.scrollTo(0, 0)
+    this.getSettingAbout();
   }
 
+  getSettingAbout() {
+    this.setting.getAllSetting().subscribe(
+      (res: any) => {
+        this.settingAbout = res;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 }
