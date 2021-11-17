@@ -3240,7 +3240,7 @@ SaaS Home Page CSS
 /* Saas banner */
 .saas-banner {
   height: 600px;
-  background-image: url("/Content/assets/ng/img/banner-img2.jpg");
+  background-image: url("/Content/assets/ng/assets/img/banner-img2.jpg");
   background-position: top;
   background-size: cover;
   position: relative;
@@ -3264,7 +3264,7 @@ SaaS Home Page CSS
       }
       margin: 0;
     }
-    p {
+    .p {
       color: $white-color;
       font-size: 18px;
       margin: {

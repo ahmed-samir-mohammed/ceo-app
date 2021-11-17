@@ -19,12 +19,29 @@
           <div class="col-lg-8 col-12 d-flex align-items-center">
             <div class="article-content">
               <div class="entry-meta">
-                <ul>
-                  <li><i class='bx bx-calendar'></i>{{reporItem?.dateCreated}}</li>
+                <ul class="d-flex">
+                  <li class="d-flex">
+                    <i class='bx bx-calendar'></i>
+                    <span>تاريخ النشر</span>
+                    <div class="me-1">{{reporItem?.publishDate | slice:0:10}}</div>
+                  </li>
+                  <li class="d-flex">
+                    <i class='bx bx-calendar'></i>
+                    <span>تاريخ الاصدار </span>
+                    <div class="me-1">{{reporItem?.issueDate | slice:0:10}}</div>
+                  </li>
                 </ul>
               </div>
               <h3>{{reporItem?.title}}</h3>
               <div [innerHTML]="reporItem?.description"></div>
+              <a *ngIf="reporItem?.link" href="{{reporItem?.link}}" target="_blank" class="default-btn mt-3 ms-2">
+                رابط التقرير
+              </a>
+              <a *ngIf="reporItem?.link" target="_blank" href="http://saudiceos.alishehata.info{{reporItem?.file}}"
+                download class="default-btn mt-3 discount">
+                تحميل الملف
+              </a>
+
             </div>
           </div>
         </div>
