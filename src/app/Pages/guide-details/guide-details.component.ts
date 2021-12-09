@@ -140,7 +140,7 @@ export class GuideDetailsComponent implements OnInit {
     this.nameIn?.setValue(this.ceoItem.name);
     this.positionIn?.setValue(this.ceoItem.position);
     this.emailIn?.setValue(this.ceoItem.email);
-    this.cvDescriptionIn?.setValue(this.ceoItem.cvDescription);
+    // this.cvDescriptionIn?.setValue(this.ceoItem.cvDescription);
     this.cvUrlIn?.setValue(this.ceoItem.cvUrl);
   }
 

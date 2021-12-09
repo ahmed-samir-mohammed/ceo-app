@@ -52,7 +52,7 @@
 
 <div class="modal fade" id="addCeo" tabindex="-1" aria-labelledby="addCeoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <form id="addCeo" [formGroup]="addCeo" (ngSubmit)="addCeoSubmit(addCeo)">
+    <form class="w-100" id="addCeo" [formGroup]="addCeo" (ngSubmit)="addCeoSubmit(addCeo)">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">طلب إضافة شخصية</h5>
@@ -62,12 +62,12 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-12">
-                <div class="container-fluid">
+                <div class="container-fluid p-0">
                   <div class="row">
-                    <div class="col-6 d-flex align-items-center justify-content-center">
+                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
                       <label for="imageUrl">
                         <div class="edit-img">
-                          <h6>اضافة الصورة</h6>
+                          <h6>الصورة الشخصية</h6>
                         </div>
                         <img [src]="imgPathUrl" *ngIf="imgPathUrl" height="150px" width="150px" alt="Ceo Image">
                         <input type="file" id="imageUrl" class="d-none"
@@ -79,10 +79,10 @@
                         <div> هذا الحقل مطلوب. </div>
                       </div>
                     </div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">
+                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
                       <label for="nationalIDimgPathUrl">
                         <div class="edit-img">
-                          <h6>اضافة هوية</h6>
+                          <h6>البطاقة التعريفية</h6>
                         </div>
                         <img [src]="nationalIDimgPathUrl" *ngIf="nationalIDimgPathUrl" height="150px" width="150px"
                           alt="Ceo Image">
@@ -133,12 +133,9 @@
               </div>
               <div class="col-lg-12 col-md-12">
                 <div class="form-group">
-                  <label for="cvDescription" class="col-form-label">السيرة الذاتية</label>
+                  <label for="cvDescription" class="col-form-label">نص الرسالة</label>
                   <ckeditor formControlName="cvDescription" [editor]="Editor" id="cvDescription">
                   </ckeditor>
-                  <!-- <input type="text" formControlName="cvDescription"
-                    [ngClass]="{'border-danger': cvDescriptionIn && cvDescriptionIn.invalid && cvDescriptionIn.touched}"
-                    id="cvDescription" class="form-control" placeholder="السيرة الذاتية" /> -->
                   <div class="invalid-feedback d-block"
                     *ngIf="cvDescriptionIn && cvDescriptionIn.invalid && cvDescriptionIn.touched">
                     <div> هذا الحقل مطلوب. </div>
@@ -148,7 +145,7 @@
               <div class="col-lg-12 col-md-12">
                 <div class="form-group">
                   <label for="cvUrl" class="file-upload">
-                    <span *ngIf="!cvUrlIn?.value">ارفاق ملف السيرة</span>
+                    <span *ngIf="!cvUrlIn?.value">إرفاق ملف السيرة الذاتية المحدث</span>
                     <span *ngIf="cvUrlIn?.value">{{fileName}}</span>
                     <input class="d-none" [ngClass]="{'border-danger': cvUrlIn && cvUrlIn.invalid && cvUrlIn.touched}"
                       type="file" accept=".docx, .pdf" id="cvUrl" (change)="onSelectFile($event)">

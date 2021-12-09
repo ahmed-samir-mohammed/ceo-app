@@ -20,7 +20,12 @@
             <div class="article-content">
               <div class="entry-meta">
                 <ul>
-                  <li><i class='bx bx-calendar'></i>{{newsItem?.createDate}}</li>
+                  <li class="d-flex">
+                    <i class='bx bx-calendar'></i>
+                    <span>تاريخ النشر</span>
+                    <div class="me-1">{{newsItem?.createDate | slice:0:10}}</div>
+                  </li>
+                  <!-- <li><i class='bx bx-calendar'></i>{{newsItem?.createDate}}</li> -->
                 </ul>
               </div>
               <h3>{{newsItem?.title}}</h3>
